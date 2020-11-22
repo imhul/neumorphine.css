@@ -109,7 +109,11 @@
 			button {
 				@extend %nw-dark;
 				
-				color: $nav-dark;	
+				color: $nav-dark;
+
+				&:hover {
+					@extend %nw-dark-focused;
+				}
 			}
 
 			label {

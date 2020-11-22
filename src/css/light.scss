@@ -109,7 +109,11 @@
 			button {
 				@extend %nw-light;
 
-				color: $nav-light;	
+				color: $nav-light;
+
+				&:hover {
+					@extend %nw-light-focused;
+				}
 			}
 
 			label {
@@ -129,7 +133,6 @@
 						@extend %nw-light-active;
 
 						color: $nav-light;
-						text-shadow: 0 0 5px $nav-light, 0 0 20px $nav-light;
 					}
 				}
 			}

@@ -106,6 +106,7 @@ button, input, select, a, i, textarea, .fa {
 			width: 40px;
 			height: 40px;
 			border: none;
+			cursor: pointer;
 
 			.fa {
 				font-size: 24px;
@@ -123,12 +124,12 @@ button, input, select, a, i, textarea, .fa {
 				margin: 0 4px;
 				font-size: 16px;
 				border-radius: 50%;
+				cursor: pointer;
 			}
 		
 			input {
 				appearance: none;
 				-webkit-appearance: none;
-				cursor: pointer;
 			}
 		}
 	}
