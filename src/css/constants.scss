@@ -1,16 +1,41 @@
 // colors
 $dark:           #263238;
 $light:          #eceff1;
-$light-bg:       #cfd8dc;
+$light-bg:       $light; // #cfd8dc
 $nav-light:      #0091ea;
+$nav-light-hover:#009fff;
 $nav-dark:       #00fff1;
+$nav-dark-hover: #00ccc1;
+
+// light
+// box shadows
+$box-shadow-light: #c9cbcd;
+$box-shadow-light-nw: #a3a5a6;
+$box-shadow-light-inset: #ffffff;
+
+// background linear gradients
+$gradient-light-focused-from: #d4d7d9;
+$gradient-light-focused-to: #fdffff;
+$gradient-light-disabled-from: $gradient-light-focused-to;
+$gradient-light-disabled-to: $gradient-light-focused-from;
+
+// dark
+// box shadows
+$box-shadow-darkest:  #161e21;
+$box-shadow-dark: #202b30;
+$box-shadow-inset: #2c3a40;
+$box-shadow-nw: #36474f;
+
+// background linear gradients
+$gradient-dark-focused-from: #222d32;
+$gradient-dark-focused-to:#29363c;
+
+// shadows width
+$shadow-width: 10px;
+$shadow-offset-x: 5px;
+$shadow-offset-y: -5px;
 
 // border-radius
 $square:            0;
 $round:             50%;
 $rounded:           20px;
-
-// shadow width
-$shadow-width: 20px;
-$shadow-offset-x: 10px;
-$shadow-offset-y: -10px;

@@ -6,7 +6,6 @@
 	.shape {
         background: $dark;
 		color: $nav-dark;
-		text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
 	}
 	
 	.nw {
@@ -94,7 +93,15 @@
 			color: $nav-dark;
 
 			&:hover {
-				text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
+				color: $nav-dark-hover;
+
+				svg {
+					fill: $nav-dark-hover;
+				}
+			}
+
+			svg {
+				fill: $nav-dark;
 			}
 		}
 

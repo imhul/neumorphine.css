@@ -2,159 +2,191 @@
 // ----default-----
 
 %nw-light {
-    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #a3a5a6, $shadow-offset-y $shadow-offset-y $shadow-width #ffffff;
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-light-nw,
+        $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-light-inset;
 }
 
 %ne-light {
-    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-y $shadow-width #ffffff;
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-light,
+        $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-light-inset;
 }
 
 %sw-light {
-    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-y $shadow-offset-x $shadow-width #ffffff;
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-light,
+        $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-light-inset;
 }
 
 %se-light {
-    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-x $shadow-width #ffffff;
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-light,
+        $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-light-inset;
 }
 
 // -----LIGHT------
 // ----active-----
 %nw-light-active {
-    box-shadow: inset $shadow-offset-x $shadow-offset-x $shadow-width #c4c6c8, inset $shadow-offset-y $shadow-offset-y $shadow-width #ffffff;
+    box-shadow: inset $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-light-nw,
+        inset $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-light-inset;
 }
 
 %ne-light-active {
-    box-shadow: inset $shadow-offset-y $shadow-offset-x $shadow-width #c9cbcd, inset $shadow-offset-x $shadow-offset-y $shadow-width #ffffff;
+    box-shadow: inset $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-light,
+        inset $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-light-inset;
 }
 
 %sw-light-active {
-    box-shadow: inset $shadow-offset-x $shadow-offset-y $shadow-width #c9cbcd, inset $shadow-offset-y $shadow-offset-x $shadow-width #ffffff;
+    box-shadow: inset $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-light,
+        inset $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-light-inset;
 }
 
 %se-light-active {
-    box-shadow: inset $shadow-offset-y $shadow-offset-y $shadow-width #c9cbcd, inset $shadow-offset-x $shadow-offset-x $shadow-width #ffffff;
+    box-shadow: inset $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-light,
+        $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-light-inset;
 }
 
 // -----LIGHT------
 // ----focused----
 %nw-light-focused {
-    background: linear-gradient(145deg, #d4d7d9, #fdffff);
-    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #a3a5a6, $shadow-offset-y $shadow-offset-y $shadow-width #ffffff;
+    background: linear-gradient(145deg, $gradient-light-focused-from, $gradient-light-focused-to);
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-light-nw,
+        $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-light-inset;
 }
 
 %ne-light-focused {
-    background: linear-gradient(225deg, #d4d7d9, #fdffff);
-    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-y $shadow-width #ffffff;
+    background: linear-gradient(225deg, $gradient-light-focused-from, $gradient-light-focused-to);
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-light,
+        $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-light-inset;
 }
 
 %sw-light-focused {
-    background: linear-gradient(45deg, #d4d7d9, #fdffff);
-    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-y $shadow-offset-x $shadow-width #ffffff;
+    background: linear-gradient(45deg, $gradient-light-focused-from, $gradient-light-focused-to);
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-light,
+        $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-light-inset;
 }
 
 %se-light-focused {
-    background: linear-gradient(315deg, #d4d7d9, #fdffff);
-    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-x $shadow-width #ffffff;
+    background: linear-gradient(315deg, $gradient-light-focused-from, $gradient-light-focused-to);
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-light,
+        $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-light-inset;
 }
 
 // -----LIGHT------
 // ---disabled----
 %nw-light-disabled {
-    background: linear-gradient(145deg, #fdffff, #d4d7d9);
-    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #a3a5a6, $shadow-offset-y $shadow-offset-y $shadow-width #ffffff;
+    background: linear-gradient(145deg, $gradient-light-disabled-from, $gradient-light-disabled-to);
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-light-nw,
+        $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-light-inset;
 }
 
 %ne-light-disabled {
-    background: linear-gradient(225deg, #fdffff, #d4d7d9);
-    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-y $shadow-width #ffffff;
+    background: linear-gradient(225deg, $gradient-light-disabled-from, $gradient-light-disabled-to);
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-light,
+        $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-light-inset;
 }
 
 %sw-light-disabled {
-    background: linear-gradient(45deg, #fdffff, #d4d7d9);
-    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-y $shadow-offset-x $shadow-width #ffffff;
+    background: linear-gradient(45deg, $gradient-light-disabled-from, $gradient-light-disabled-to);
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-light,
+        $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-light-inset;
 }
 
 %se-light-disabled {
-    background: linear-gradient(315deg, #fdffff, #d4d7d9);
-    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-x $shadow-width #ffffff;
+    background: linear-gradient(315deg, $gradient-light-disabled-from, $gradient-light-disabled-to);
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-light,
+        $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-light-inset;
 }
 
 // ------DARK------
 // ----default-----
 %nw-dark {
-    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #161e21, $shadow-offset-y $shadow-offset-y $shadow-width #36474f;
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-darkest,
+        $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-nw;
 }
 
 %ne-dark {
-    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #202b30, $shadow-offset-x $shadow-offset-y $shadow-width #2c3a40;
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-dark,
+        $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-inset;
 }
 
 %sw-dark {
-    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #202b30, $shadow-offset-y $shadow-offset-x $shadow-width #2c3a40;
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-dark,
+        $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-inset;
 }
 
 %se-dark {
-    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #202b30, $shadow-offset-x $shadow-offset-x $shadow-width #2c3a40;
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-dark,
+        $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-inset;
 }
 
 // ------DARK------
 // ----active-----
 %nw-dark-active {
-    box-shadow: inset $shadow-offset-x $shadow-offset-x $shadow-width #1e282d, inset $shadow-offset-y $shadow-offset-y $shadow-width #2e3c43;
+    box-shadow: inset $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-darkest,
+        inset $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-inset;
 }
 
 %ne-dark-active {
-    box-shadow: inset $shadow-offset-y $shadow-offset-x $shadow-width #202b30, inset $shadow-offset-x $shadow-offset-y $shadow-width #2c3a40;
+    box-shadow: inset $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-dark,
+        inset $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-inset;
 }
 
 %sw-dark-active {
-    box-shadow: inset $shadow-offset-x $shadow-offset-y $shadow-width #202b30, inset $shadow-offset-y $shadow-offset-x $shadow-width #2c3a40;
+    box-shadow: inset $shadow-offset-x $shadow-offset-y $shadow-width$box-shadow-dark,
+        inset $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-inset;
 }
 
 %se-dark-active {
-    box-shadow: inset $shadow-offset-y $shadow-offset-y $shadow-width #202b30, inset $shadow-offset-x $shadow-offset-x $shadow-width #2c3a40;
+    box-shadow: inset $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-dark,
+        inset $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-inset;
 }
 
 // ------DARK------
 // ----focused----
 %nw-dark-focused {
-    background: linear-gradient(145deg, #222d32, #29363c);
-    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #161e21, $shadow-offset-y $shadow-offset-y $shadow-width #36474f;
+    background: linear-gradient(145deg, $gradient-dark-focused-from, $gradient-dark-focused-to);
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-darkest,
+        $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-nw;
 }
 
 %ne-dark-focused {
-    background: linear-gradient(225deg, #222d32, #29363c);
-    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #202b30, $shadow-offset-x $shadow-offset-y $shadow-width #2c3a40;
+    background: linear-gradient(225deg, $gradient-dark-focused-from, $gradient-dark-focused-to);
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-dark,
+        $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-inset;
 }
 
 %sw-dark-focused {
-    background: linear-gradient(45deg, #222d32, #29363c);
-    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #202b30, $shadow-offset-y $shadow-offset-x $shadow-width #2c3a40;
+    background: linear-gradient(45deg, $gradient-dark-focused-from, $gradient-dark-focused-to);
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-dark,
+        $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-inset;
 }
 
 %se-dark-focused {
-    background: linear-gradient(315deg, #222d32, #29363c);
-    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #202b30, $shadow-offset-x $shadow-offset-x $shadow-width #2c3a40;
+    background: linear-gradient(315deg, $gradient-dark-focused-from, $gradient-dark-focused-to);
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-dark,
+        $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-inset;
 }
 
 // ------DARK------
 // ---disabled----
 %nw-dark-disabled {
-    background: linear-gradient(145deg, #29363c, #222d32);
-    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #161e21, $shadow-offset-y $shadow-offset-y $shadow-width #36474f;
+    background: linear-gradient(145deg, $gradient-dark-focused-to, $gradient-dark-focused-from);
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-darkest,
+        $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-nw;
 }
 
 %ne-dark-disabled {
-    background: linear-gradient(225deg, #29363c, #222d32);
-    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #202b30, $shadow-offset-x $shadow-offset-y $shadow-width #2c3a40;
+    background: linear-gradient(225deg, $gradient-dark-focused-to, $gradient-dark-focused-from);
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-dark,
+        $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-inset;
 }
 
 %sw-dark-disabled {
-    background: linear-gradient(45deg, #29363c, #222d32);
-    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #202b30, $shadow-offset-y $shadow-offset-x $shadow-width #2c3a40;
+    background: linear-gradient(45deg, $gradient-dark-focused-to, $gradient-dark-focused-from);
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width $box-shadow-dark,
+        $shadow-offset-y $shadow-offset-x $shadow-width $box-shadow-inset;
 }
 
 %se-dark-disabled {
-    background: linear-gradient(315deg, #29363c, #222d32);
-    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #202b30, $shadow-offset-x $shadow-offset-x $shadow-width #2c3a40;
+    background: linear-gradient(315deg, $gradient-dark-focused-to, $gradient-dark-focused-from);
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-dark,
+        $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-inset;
 }

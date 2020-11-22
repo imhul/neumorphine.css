@@ -4,7 +4,8 @@
   "description": "neumorphism design library",
   "main": "src/js/index.js",
   "scripts": {
-    "go": "parcel src/example.html --no-cache"
+    "go": "parcel src/example.html --no-cache",
+    "build": "parcel build src/example.html"
   },
   "repository": {
     "type": "git",
