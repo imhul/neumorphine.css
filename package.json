@@ -1,0 +1,27 @@
+{
+  "name": "neumorphine",
+  "version": "1.0.0",
+  "description": "neumorphism design library",
+  "main": "src/js/index.js",
+  "scripts": {
+    "go": "parcel src/example.html --no-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imhul/neumorphine.css.git"
+  },
+  "keywords": [
+    "neumorphism",
+    "css"
+  ],
+  "author": "Tkachuk Zakhar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imhul/neumorphine.css/issues"
+  },
+  "homepage": "https://github.com/imhul/neumorphine.css#readme",
+  "dependencies": {
+    "parcel": "^1.12.4",
+    "sass": "^1.29.0"
+  }
+}

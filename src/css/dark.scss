@@ -1,0 +1,133 @@
+.dark {
+	p {
+		color: $light;
+	}
+
+	.shape {
+        background: $dark;
+		color: $nav-dark;
+		text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
+	}
+	
+	.nw {
+		.shape {
+			&-default {
+				@extend %nw-dark;
+			}
+	
+			&-focused {
+				@extend %nw-dark-focused;
+			}
+	
+			&-active {
+				@extend %nw-dark-active;
+			}
+	
+			&-disabled {
+				@extend %nw-dark-disabled;
+			}
+		}
+	}
+
+	.ne {
+		.shape {
+			&-default {
+				@extend %ne-dark;
+			}
+	
+			&-focused {
+				@extend %ne-dark-focused;
+			}
+	
+			&-active {
+				@extend %ne-dark-active;
+			}
+	
+			&-disabled {
+				@extend %ne-dark-disabled;
+			}
+		}
+	}
+
+	.sw {
+		.shape {
+			&-default {
+				@extend %sw-dark;
+			}
+	
+			&-focused {
+				@extend %sw-dark-focused;
+			}
+	
+			&-active {
+				@extend %sw-dark-active;
+			}
+	
+			&-disabled {
+				@extend %sw-dark-disabled;
+			}
+		}
+	}
+
+	.se {
+		.shape {
+			&-default {
+				@extend %se-dark;
+			}
+	
+			&-focused {
+				@extend %se-dark-focused;
+			}
+	
+			&-active {
+				@extend %se-dark-active;
+			}
+	
+			&-disabled {
+				@extend %se-dark-disabled;
+			}
+		}	
+	}
+
+	.absolute {
+		a {
+			color: $nav-dark;
+
+			&:hover {
+				text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
+			}
+		}
+
+		nav {
+			button {
+				@extend %nw-dark;
+				
+				color: $nav-dark;	
+			}
+
+			label {
+				.fa {
+					@extend %nw-dark;
+
+					background-color: $dark;
+					color: $nav-dark;
+
+					&:hover {
+						@extend %nw-dark-focused;
+
+						text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
+					}
+				}
+
+				input {
+					&:checked ~ .fa {
+						@extend %nw-dark-active;
+
+						color: $nav-dark;
+						text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
+					}
+				}
+			}
+		}
+	}
+}

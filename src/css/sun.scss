@@ -1,0 +1,160 @@
+// -----LIGHT------
+// ----default-----
+
+%nw-light {
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #a3a5a6, $shadow-offset-y $shadow-offset-y $shadow-width #ffffff;
+}
+
+%ne-light {
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-y $shadow-width #ffffff;
+}
+
+%sw-light {
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-y $shadow-offset-x $shadow-width #ffffff;
+}
+
+%se-light {
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-x $shadow-width #ffffff;
+}
+
+// -----LIGHT------
+// ----active-----
+%nw-light-active {
+    box-shadow: inset $shadow-offset-x $shadow-offset-x $shadow-width #c4c6c8, inset $shadow-offset-y $shadow-offset-y $shadow-width #ffffff;
+}
+
+%ne-light-active {
+    box-shadow: inset $shadow-offset-y $shadow-offset-x $shadow-width #c9cbcd, inset $shadow-offset-x $shadow-offset-y $shadow-width #ffffff;
+}
+
+%sw-light-active {
+    box-shadow: inset $shadow-offset-x $shadow-offset-y $shadow-width #c9cbcd, inset $shadow-offset-y $shadow-offset-x $shadow-width #ffffff;
+}
+
+%se-light-active {
+    box-shadow: inset $shadow-offset-y $shadow-offset-y $shadow-width #c9cbcd, inset $shadow-offset-x $shadow-offset-x $shadow-width #ffffff;
+}
+
+// -----LIGHT------
+// ----focused----
+%nw-light-focused {
+    background: linear-gradient(145deg, #d4d7d9, #fdffff);
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #a3a5a6, $shadow-offset-y $shadow-offset-y $shadow-width #ffffff;
+}
+
+%ne-light-focused {
+    background: linear-gradient(225deg, #d4d7d9, #fdffff);
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-y $shadow-width #ffffff;
+}
+
+%sw-light-focused {
+    background: linear-gradient(45deg, #d4d7d9, #fdffff);
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-y $shadow-offset-x $shadow-width #ffffff;
+}
+
+%se-light-focused {
+    background: linear-gradient(315deg, #d4d7d9, #fdffff);
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-x $shadow-width #ffffff;
+}
+
+// -----LIGHT------
+// ---disabled----
+%nw-light-disabled {
+    background: linear-gradient(145deg, #fdffff, #d4d7d9);
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #a3a5a6, $shadow-offset-y $shadow-offset-y $shadow-width #ffffff;
+}
+
+%ne-light-disabled {
+    background: linear-gradient(225deg, #fdffff, #d4d7d9);
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-y $shadow-width #ffffff;
+}
+
+%sw-light-disabled {
+    background: linear-gradient(45deg, #fdffff, #d4d7d9);
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-y $shadow-offset-x $shadow-width #ffffff;
+}
+
+%se-light-disabled {
+    background: linear-gradient(315deg, #fdffff, #d4d7d9);
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #c9cbcd, $shadow-offset-x $shadow-offset-x $shadow-width #ffffff;
+}
+
+// ------DARK------
+// ----default-----
+%nw-dark {
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #161e21, $shadow-offset-y $shadow-offset-y $shadow-width #36474f;
+}
+
+%ne-dark {
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #202b30, $shadow-offset-x $shadow-offset-y $shadow-width #2c3a40;
+}
+
+%sw-dark {
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #202b30, $shadow-offset-y $shadow-offset-x $shadow-width #2c3a40;
+}
+
+%se-dark {
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #202b30, $shadow-offset-x $shadow-offset-x $shadow-width #2c3a40;
+}
+
+// ------DARK------
+// ----active-----
+%nw-dark-active {
+    box-shadow: inset $shadow-offset-x $shadow-offset-x $shadow-width #1e282d, inset $shadow-offset-y $shadow-offset-y $shadow-width #2e3c43;
+}
+
+%ne-dark-active {
+    box-shadow: inset $shadow-offset-y $shadow-offset-x $shadow-width #202b30, inset $shadow-offset-x $shadow-offset-y $shadow-width #2c3a40;
+}
+
+%sw-dark-active {
+    box-shadow: inset $shadow-offset-x $shadow-offset-y $shadow-width #202b30, inset $shadow-offset-y $shadow-offset-x $shadow-width #2c3a40;
+}
+
+%se-dark-active {
+    box-shadow: inset $shadow-offset-y $shadow-offset-y $shadow-width #202b30, inset $shadow-offset-x $shadow-offset-x $shadow-width #2c3a40;
+}
+
+// ------DARK------
+// ----focused----
+%nw-dark-focused {
+    background: linear-gradient(145deg, #222d32, #29363c);
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #161e21, $shadow-offset-y $shadow-offset-y $shadow-width #36474f;
+}
+
+%ne-dark-focused {
+    background: linear-gradient(225deg, #222d32, #29363c);
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #202b30, $shadow-offset-x $shadow-offset-y $shadow-width #2c3a40;
+}
+
+%sw-dark-focused {
+    background: linear-gradient(45deg, #222d32, #29363c);
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #202b30, $shadow-offset-y $shadow-offset-x $shadow-width #2c3a40;
+}
+
+%se-dark-focused {
+    background: linear-gradient(315deg, #222d32, #29363c);
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #202b30, $shadow-offset-x $shadow-offset-x $shadow-width #2c3a40;
+}
+
+// ------DARK------
+// ---disabled----
+%nw-dark-disabled {
+    background: linear-gradient(145deg, #29363c, #222d32);
+    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width #161e21, $shadow-offset-y $shadow-offset-y $shadow-width #36474f;
+}
+
+%ne-dark-disabled {
+    background: linear-gradient(225deg, #29363c, #222d32);
+    box-shadow: $shadow-offset-y $shadow-offset-x $shadow-width #202b30, $shadow-offset-x $shadow-offset-y $shadow-width #2c3a40;
+}
+
+%sw-dark-disabled {
+    background: linear-gradient(45deg, #29363c, #222d32);
+    box-shadow: $shadow-offset-x $shadow-offset-y $shadow-width #202b30, $shadow-offset-y $shadow-offset-x $shadow-width #2c3a40;
+}
+
+%se-dark-disabled {
+    background: linear-gradient(315deg, #29363c, #222d32);
+    box-shadow: $shadow-offset-y $shadow-offset-y $shadow-width #202b30, $shadow-offset-x $shadow-offset-x $shadow-width #2c3a40;
+}

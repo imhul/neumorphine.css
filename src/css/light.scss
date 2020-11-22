@@ -1,0 +1,130 @@
+.light {
+	p {
+		color: $dark;
+	}
+
+	.shape {
+		background: $light;
+		color: $dark;
+	}
+
+	.nw {
+		.shape {
+			&-default {
+				@extend %nw-light;
+			}
+	
+			&-focused {
+				@extend %nw-light-focused;
+			}
+	
+			&-active {
+				@extend %nw-light-active;
+			}
+	
+			&-disabled {
+				@extend %nw-light-disabled;
+			}
+		}
+	}
+
+	.ne {
+		.shape {
+			&-default {
+				@extend %ne-light;
+			}
+	
+			&-focused {
+				@extend %ne-light-focused;
+			}
+	
+			&-active {
+				@extend %ne-light-active;
+			}
+	
+			&-disabled {
+				@extend %ne-light-disabled;
+			}
+		}
+	}
+
+	.sw {
+		.shape {
+			&-default {
+				@extend %sw-light;
+			}
+	
+			&-focused {
+				@extend %sw-light-focused;
+			}
+	
+			&-active {
+				@extend %sw-light-active;
+			}
+	
+			&-disabled {
+				@extend %sw-light-disabled;
+			}
+		}
+	}
+
+	.se {
+		.shape {
+			&-default {
+				@extend %se-light;
+			}
+	
+			&-focused {
+				@extend %se-light-focused;
+			}
+	
+			&-active {
+				@extend %se-light-active;
+			}
+	
+			&-disabled {
+				@extend %se-light-disabled;
+			}
+		}	
+	}
+
+	.absolute {
+		a {
+			color: $nav-light;
+
+			&:hover {
+				text-shadow: 0 0 5px $nav-light, 0 0 20px $nav-light;
+			}
+		}
+
+		nav {
+			button {
+				@extend %nw-light;
+
+				color: $nav-light;	
+			}
+
+			label {
+				.fa {
+					@extend %nw-light;
+
+					background-color: $light;
+					color: $nav-light;
+
+					&:hover {
+						@extend %nw-light-focused;
+					}
+				}
+
+				input {
+					&:checked ~ .fa {
+						@extend %nw-light-active;
+
+						color: $nav-light;
+						text-shadow: 0 0 5px $nav-light, 0 0 20px $nav-light;
+					}
+				}
+			}
+		}
+	}
+}

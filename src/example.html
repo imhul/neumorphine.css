@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Neumorphine</title>
+        <link rel="stylesheet" type="text/css" href="css/neumorphine.scss">
+    </head>
+    <body>
+        <header class="absolute">
+            <nav>
+                <label>
+                    <input type="radio" name="direction" value="nw" class="rays" />
+                    <i class="fa">nw</i>
+                </label>
+                <label>
+                    <input type="radio" name="direction" value="ne" class="rays" />
+                    <i class="fa">ne</i>
+                </label>
+                <label>
+                    <input type="radio" name="direction" value="sw" class="rays" />
+                    <i class="fa">sw</i>
+                </label>
+                <label>
+                    <input type="radio" name="direction" value="se" class="rays" />
+                    <i class="fa">se</i>
+                </label>
+            </nav>
+            <a href="https://github.com/imhul/neumorphine.css" target="_blank" rel="noopener noreferrer">
+                <h1>
+                    neumorphine.css
+                </h1>
+            </a>
+            <nav>
+                <button id="trigger" class="shape round">
+                    <i class="fa">&#9775;</i>
+                </button>
+            </nav>
+        </header>
+        
+        <div class="container" id="sun">
+            <div class="shape square shape-default"><i class="fa">&#9763;</i></div>
+            <div class="shape square shape-active"><i class="fa">&#9763;</i></div>
+            <div class="shape square shape-disabled"><i class="fa">&#9763;</i></div>
+            <div class="shape square shape-focused"><i class="fa">&#9763;</i></div>
+
+            <div class="shape rounded shape-default"><i class="fa">&#9763;</i></div>
+            <div class="shape rounded shape-active"><i class="fa">&#9763;</i></div>
+            <div class="shape rounded shape-disabled"><i class="fa">&#9763;</i></div>
+            <div class="shape rounded shape-focused"><i class="fa">&#9763;</i></div>
+
+            <div class="shape round shape-default"><i class="fa">&#9763;</i></div>
+            <div class="shape round shape-active"><i class="fa">&#9763;</i></div>
+            <div class="shape round shape-disabled"><i class="fa">&#9763;</i></div>
+            <div class="shape round shape-focused"><i class="fa">&#9763;</i></div>
+        </div>
+        <script src="js/neumorphine.js"></script>
+    </body>
+</html>
