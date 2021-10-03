@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/imhul/neumorphine.css#readme",
   "dependencies": {
-    "parcel": "^1.12.4",
-    "sass": "^1.29.0"
+    "parcel": "^1.12.5",
+    "sass": "^1.42.1"
   }
 }
