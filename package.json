@@ -4,7 +4,7 @@
   "description": "neumorphism design library",
   "main": "src/js/neumorphine.js",
   "scripts": {
-    "go": "parcel src/example.html --no-cache",
+    "go": "parcel src/index.html --no-cache",
     "build": "parcel build src/index.html",
     "format": "yarn prettier --write ./src/"
   },
