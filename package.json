@@ -4,8 +4,8 @@
   "description": "neumorphism design library",
   "main": "src/js/neumorphine.js",
   "scripts": {
-    "go": "parcel src/index.html --no-cache",
-    "build": "parcel build src/index.html",
+    "go": "parcel index.html --no-cache",
+    "build": "parcel build index.html",
     "format": "yarn prettier --write ./src/"
   },
   "repository": {
