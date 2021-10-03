@@ -1,153 +1,152 @@
 .dark {
-	p {
-		color: $light;
-	}
+    p {
+        color: $light;
+    }
 
-	.shape {
+    .shape {
         background: $dark;
-		color: $nav-dark;
-	}
-	
-	.nw {
-		.shape {
-			&-default {
-				@extend %nw-dark;
-			}
-	
-			&-focused {
-				@extend %nw-dark-focused;
-			}
-	
-			&-active {
-				@extend %nw-dark-active;
-			}
-	
-			&-disabled {
-				@extend %nw-dark-disabled;
-			}
-		}
-	}
+        color: $nav-dark;
+    }
 
-	.ne {
-		.shape {
-			&-default {
-				@extend %ne-dark;
-			}
-	
-			&-focused {
-				@extend %ne-dark-focused;
-			}
-	
-			&-active {
-				@extend %ne-dark-active;
-			}
-	
-			&-disabled {
-				@extend %ne-dark-disabled;
-			}
-		}
-	}
+    .nw {
+        .shape {
+            &-default {
+                @extend %nw-dark;
+            }
 
-	.sw {
-		.shape {
-			&-default {
-				@extend %sw-dark;
-			}
-	
-			&-focused {
-				@extend %sw-dark-focused;
-			}
-	
-			&-active {
-				@extend %sw-dark-active;
-			}
-	
-			&-disabled {
-				@extend %sw-dark-disabled;
-			}
-		}
-	}
+            &-focused {
+                @extend %nw-dark-focused;
+            }
 
-	.se {
-		.shape {
-			&-default {
-				@extend %se-dark;
-			}
-	
-			&-focused {
-				@extend %se-dark-focused;
-			}
-	
-			&-active {
-				@extend %se-dark-active;
-			}
-	
-			&-disabled {
-				@extend %se-dark-disabled;
-			}
-		}	
-	}
+            &-active {
+                @extend %nw-dark-active;
+            }
 
-	.absolute {
+            &-disabled {
+                @extend %nw-dark-disabled;
+            }
+        }
+    }
 
-		nav {
-			button {
-				@extend %nw-dark;
-				
-				color: $nav-dark;
+    .ne {
+        .shape {
+            &-default {
+                @extend %ne-dark;
+            }
 
-				&:hover {
-					@extend %nw-dark-focused;
-				}
-			}
+            &-focused {
+                @extend %ne-dark-focused;
+            }
 
-			label {
-				.fa {
-					@extend %nw-dark;
+            &-active {
+                @extend %ne-dark-active;
+            }
 
-					background-color: $dark;
-					color: $nav-dark;
+            &-disabled {
+                @extend %ne-dark-disabled;
+            }
+        }
+    }
 
-					&:hover {
-						@extend %nw-dark-focused;
+    .sw {
+        .shape {
+            &-default {
+                @extend %sw-dark;
+            }
 
-						text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
-					}
-				}
+            &-focused {
+                @extend %sw-dark-focused;
+            }
 
-				input {
-					&:checked ~ .fa {
-						@extend %nw-dark-active;
+            &-active {
+                @extend %sw-dark-active;
+            }
 
-						color: $nav-dark;
-						text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
-					}
-				}
-			}
-		}
-	}
+            &-disabled {
+                @extend %sw-dark-disabled;
+            }
+        }
+    }
 
-	.container {
-		.row {
-			border-bottom: 1px dashed $box-shadow-nw;
-		}
-	}
+    .se {
+        .shape {
+            &-default {
+                @extend %se-dark;
+            }
 
-	footer {
-		a {
-			color: $nav-dark;
+            &-focused {
+                @extend %se-dark-focused;
+            }
 
-			&:hover {
-				color: $nav-dark-hover;
+            &-active {
+                @extend %se-dark-active;
+            }
 
-				svg {
-					fill: $nav-dark-hover;
-				}
-			}
+            &-disabled {
+                @extend %se-dark-disabled;
+            }
+        }
+    }
 
-			svg {
-				fill: $nav-dark;
-			}
-		}
-	}
+    .absolute {
+        nav {
+            button {
+                @extend %nw-dark;
+
+                color: $nav-dark;
+
+                &:hover {
+                    @extend %nw-dark-focused;
+                }
+            }
+
+            label {
+                .fa {
+                    @extend %nw-dark;
+
+                    background-color: $dark;
+                    color: $nav-dark;
+
+                    &:hover {
+                        @extend %nw-dark-focused;
+
+                        text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
+                    }
+                }
+
+                input {
+                    &:checked ~ .fa {
+                        @extend %nw-dark-active;
+
+                        color: $nav-dark;
+                        text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
+                    }
+                }
+            }
+        }
+    }
+
+    .container {
+        .row {
+            border-bottom: 1px dashed $box-shadow-nw;
+        }
+    }
+
+    footer {
+        a {
+            color: $nav-dark;
+
+            &:hover {
+                color: $nav-dark-hover;
+
+                svg {
+                    fill: $nav-dark-hover;
+                }
+            }
+
+            svg {
+                fill: $nav-dark;
+            }
+        }
+    }
 }

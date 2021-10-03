@@ -3,8 +3,7 @@ if (module.hot) {
 }
 
 (() => {
-    window.onload = () => { 
-
+    window.onload = () => {
         let theme = 'light';
         let direction = 'nw';
         const wrapper = document.body;
@@ -16,7 +15,7 @@ if (module.hot) {
 
         rays.forEach(ray => {
             ray.addEventListener('click', event => {
-                console.info('value: ', event.target.value); 
+                console.info('value: ', event.target.value);
                 if (direction !== event.target.value) {
                     sun.classList.remove(direction);
                     direction = event.target.value;
@@ -36,5 +35,5 @@ if (module.hot) {
                 wrapper.classList.add('light');
             }
         });
-    }
+    };
 })();

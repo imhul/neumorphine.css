@@ -1,10 +1,10 @@
 // colors
-$dark:           #263238;
-$light:          #eceff1;
-$light-bg:       $light; // #cfd8dc
-$nav-light:      #0091ea;
-$nav-light-hover:#009fff;
-$nav-dark:       #00fff1;
+$dark: #263238;
+$light: #eceff1;
+$light-bg: $light; // #cfd8dc
+$nav-light: #0091ea;
+$nav-light-hover: #009fff;
+$nav-dark: #00fff1;
 $nav-dark-hover: #00ccc1;
 
 // light
@@ -21,14 +21,14 @@ $gradient-light-disabled-to: $gradient-light-focused-from;
 
 // dark
 // box shadows
-$box-shadow-darkest:  #161e21;
+$box-shadow-darkest: #161e21;
 $box-shadow-dark: #202b30;
 $box-shadow-inset: #2c3a40;
 $box-shadow-nw: #36474f;
 
 // background linear gradients
 $gradient-dark-focused-from: #222d32;
-$gradient-dark-focused-to:#29363c;
+$gradient-dark-focused-to: #29363c;
 
 // shadows width
 $shadow-width: 10px;
@@ -36,6 +36,6 @@ $shadow-offset-x: 5px;
 $shadow-offset-y: -5px;
 
 // border-radius
-$square:            0;
-$round:             50%;
-$rounded:           20px;
+$square: 0;
+$round: 50%;
+$rounded: 20px;

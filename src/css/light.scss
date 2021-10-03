@@ -1,150 +1,149 @@
 .light {
-	p {
-		color: $dark;
-	}
+    p {
+        color: $dark;
+    }
 
-	.shape {
-		background: $light;
-		color: $nav-light;
-	}
+    .shape {
+        background: $light;
+        color: $nav-light;
+    }
 
-	.nw {
-		.shape {
-			&-default {
-				@extend %nw-light;
-			}
-	
-			&-focused {
-				@extend %nw-light-focused;
-			}
-	
-			&-active {
-				@extend %nw-light-active;
-			}
-	
-			&-disabled {
-				@extend %nw-light-disabled;
-			}
-		}
-	}
+    .nw {
+        .shape {
+            &-default {
+                @extend %nw-light;
+            }
 
-	.ne {
-		.shape {
-			&-default {
-				@extend %ne-light;
-			}
-	
-			&-focused {
-				@extend %ne-light-focused;
-			}
-	
-			&-active {
-				@extend %ne-light-active;
-			}
-	
-			&-disabled {
-				@extend %ne-light-disabled;
-			}
-		}
-	}
+            &-focused {
+                @extend %nw-light-focused;
+            }
 
-	.sw {
-		.shape {
-			&-default {
-				@extend %sw-light;
-			}
-	
-			&-focused {
-				@extend %sw-light-focused;
-			}
-	
-			&-active {
-				@extend %sw-light-active;
-			}
-	
-			&-disabled {
-				@extend %sw-light-disabled;
-			}
-		}
-	}
+            &-active {
+                @extend %nw-light-active;
+            }
 
-	.se {
-		.shape {
-			&-default {
-				@extend %se-light;
-			}
-	
-			&-focused {
-				@extend %se-light-focused;
-			}
-	
-			&-active {
-				@extend %se-light-active;
-			}
-	
-			&-disabled {
-				@extend %se-light-disabled;
-			}
-		}	
-	}
+            &-disabled {
+                @extend %nw-light-disabled;
+            }
+        }
+    }
 
-	.absolute {
+    .ne {
+        .shape {
+            &-default {
+                @extend %ne-light;
+            }
 
-		nav {
-			button {
-				@extend %nw-light;
+            &-focused {
+                @extend %ne-light-focused;
+            }
 
-				color: $nav-light;
+            &-active {
+                @extend %ne-light-active;
+            }
 
-				&:hover {
-					@extend %nw-light-focused;
-				}
-			}
+            &-disabled {
+                @extend %ne-light-disabled;
+            }
+        }
+    }
 
-			label {
-				.fa {
-					@extend %nw-light;
+    .sw {
+        .shape {
+            &-default {
+                @extend %sw-light;
+            }
 
-					background-color: $light;
-					color: $nav-light;
+            &-focused {
+                @extend %sw-light-focused;
+            }
 
-					&:hover {
-						@extend %nw-light-focused;
-					}
-				}
+            &-active {
+                @extend %sw-light-active;
+            }
 
-				input {
-					&:checked ~ .fa {
-						@extend %nw-light-active;
+            &-disabled {
+                @extend %sw-light-disabled;
+            }
+        }
+    }
 
-						color: $nav-light;
-					}
-				}
-			}
-		}
-	}
+    .se {
+        .shape {
+            &-default {
+                @extend %se-light;
+            }
 
-	.container {
-		.row {
-			border-bottom: 1px dashed $box-shadow-light;
-		}
-	}
+            &-focused {
+                @extend %se-light-focused;
+            }
 
-	footer {
-		a {
-			color: $nav-light;
+            &-active {
+                @extend %se-light-active;
+            }
 
-			&:hover {
-				color: $nav-light-hover;
+            &-disabled {
+                @extend %se-light-disabled;
+            }
+        }
+    }
 
-				svg {
-					fill: $nav-light-hover;
-				}
-			}
+    .absolute {
+        nav {
+            button {
+                @extend %nw-light;
 
-			svg {
-				fill: $nav-light;
-			}
-		}
-	}
+                color: $nav-light;
+
+                &:hover {
+                    @extend %nw-light-focused;
+                }
+            }
+
+            label {
+                .fa {
+                    @extend %nw-light;
+
+                    background-color: $light;
+                    color: $nav-light;
+
+                    &:hover {
+                        @extend %nw-light-focused;
+                    }
+                }
+
+                input {
+                    &:checked ~ .fa {
+                        @extend %nw-light-active;
+
+                        color: $nav-light;
+                    }
+                }
+            }
+        }
+    }
+
+    .container {
+        .row {
+            border-bottom: 1px dashed $box-shadow-light;
+        }
+    }
+
+    footer {
+        a {
+            color: $nav-light;
+
+            &:hover {
+                color: $nav-light-hover;
+
+                svg {
+                    fill: $nav-light-hover;
+                }
+            }
+
+            svg {
+                fill: $nav-light;
+            }
+        }
+    }
 }
