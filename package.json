@@ -5,7 +5,7 @@
   "main": "src/js/neumorphine.js",
   "scripts": {
     "go": "parcel src/example.html --no-cache",
-    "build": "parcel build src/example.html",
+    "build": "parcel build src/index.html",
     "format": "yarn prettier --write ./src/"
   },
   "repository": {
