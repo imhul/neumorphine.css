@@ -1,22 +1,18 @@
 body {
+	display: flex;
+    flex-direction: column;
+	justify-content: space-between;
 	padding: 0;
-	overflow: hidden;
+	overflow: auto;
 	min-height: 100vh;
+	height: 100%;
+	margin: 0 auto;
 	font-family: sans-serif;
-	height: calc(100vh - 60px);
-	margin: 60px auto 0;
-	
-	* {
-		transition: color .3s, 
-			fill .3s,
-			background-color .3s, 
-			box-shadow .3s, 
-			text-shadow .3s;
-	}
 }
 
 button, input, select, a, i, textarea, .fa {
 	outline: none !important;
+	transition: all .3s;
 }
 
 .light {
@@ -30,17 +26,32 @@ button, input, select, a, i, textarea, .fa {
 .container {
 	position: relative;
 	display: flex;
+	flex: 1 0 auto;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	width: 80%;
-	height: 70vh;
-	margin: 100px auto;
+	width: 95%;
+	height: 100%;
+	margin: 125px auto 25px;
+
+	@media screen and (min-width: 768px) {
+		width: 85%;
+	}
 
 	.row {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
 		width: 100%;
+		margin-bottom: 25px;
+
+		&:last-child {
+			border-bottom: none !important;
+		}
+
+		@media screen and (min-width: 768px) {
+			flex-wrap: nowrap;
+		}
 
 		.shape {
 			min-width: 100px;
@@ -74,7 +85,13 @@ button, input, select, a, i, textarea, .fa {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 50px;
 	font-size: 50px;
+
+	.title {
+		font-size: 10px;
+	}
 }
 
 .fa {
@@ -85,26 +102,26 @@ button, input, select, a, i, textarea, .fa {
     -webkit-font-smoothing: antialiased;
 }
 
-.absolute {
-	position: absolute !important;
-	display: flex;
-	width: 100%;
-	justify-content: space-between;
+header {
+	position: absolute;
 	align-items: center;
+    justify-content: flex-start;
+    display: flex;
+	width: 100%;
 	top: 0;
-    transform: translateX(-50%);
-    left: 50%;
+    left: 0;
     z-index: 1;
-
-	a {
-		text-decoration: none;
-		margin-left: 25px;
-	}
 	
 	nav {
-		button {
+		margin: 25px auto 25px 25px;
+
+		#trigger {
+			position: absolute;
+			top: 25px;
+			right: 25px;
 			width: 40px;
 			height: 40px;
+			margin: 0;
 			border: none;
 			cursor: pointer;
 
@@ -121,10 +138,14 @@ button, input, select, a, i, textarea, .fa {
 				height: 40px;
 				line-height: 40px;
 				text-align: center;
-				margin: 0 4px;
+				margin: 0;
 				font-size: 16px;
 				border-radius: 50%;
 				cursor: pointer;
+
+				@media screen and (min-width: 768px) {
+					margin: 0 10px;
+				}
 			}
 		
 			input {
@@ -132,5 +153,25 @@ button, input, select, a, i, textarea, .fa {
 				-webkit-appearance: none;
 			}
 		}
+	}
+
+	@media screen and (min-width: 768px) {
+		justify-content: center;
+
+		nav {
+			margin: 25px auto;
+		}
+	}
+}
+
+footer {
+	height: 100px;
+	align-items: center;
+    justify-content: center;
+    display: flex;
+
+	a {
+		text-decoration: none;
+		margin: 0 auto;
 	}
 }

@@ -89,21 +89,6 @@
 	}
 
 	.absolute {
-		a {
-			color: $nav-light;
-
-			&:hover {
-				color: $nav-light-hover;
-
-				svg {
-					fill: $nav-light-hover;
-				}
-			}
-
-			svg {
-				fill: $nav-light;
-			}
-		}
 
 		nav {
 			button {
@@ -135,6 +120,30 @@
 						color: $nav-light;
 					}
 				}
+			}
+		}
+	}
+
+	.container {
+		.row {
+			border-bottom: 1px dashed $box-shadow-light;
+		}
+	}
+
+	footer {
+		a {
+			color: $nav-light;
+
+			&:hover {
+				color: $nav-light-hover;
+
+				svg {
+					fill: $nav-light-hover;
+				}
+			}
+
+			svg {
+				fill: $nav-light;
 			}
 		}
 	}

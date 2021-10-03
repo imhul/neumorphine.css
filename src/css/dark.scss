@@ -89,21 +89,6 @@
 	}
 
 	.absolute {
-		a {
-			color: $nav-dark;
-
-			&:hover {
-				color: $nav-dark-hover;
-
-				svg {
-					fill: $nav-dark-hover;
-				}
-			}
-
-			svg {
-				fill: $nav-dark;
-			}
-		}
 
 		nav {
 			button {
@@ -138,6 +123,30 @@
 						text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
 					}
 				}
+			}
+		}
+	}
+
+	.container {
+		.row {
+			border-bottom: 1px dashed $box-shadow-nw;
+		}
+	}
+
+	footer {
+		a {
+			color: $nav-dark;
+
+			&:hover {
+				color: $nav-dark-hover;
+
+				svg {
+					fill: $nav-dark-hover;
+				}
+			}
+
+			svg {
+				fill: $nav-dark;
 			}
 		}
 	}
