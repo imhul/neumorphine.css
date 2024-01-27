@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    transition: all 0.35s;
+
+    &::after {
+        box-sizing: border-box;
+    }
+
+    &::before {
+        box-sizing: border-box;
+    }
+}
+
+button,
+input,
+select,
+a,
+i,
+textarea {
+    outline: none !important;
+}
