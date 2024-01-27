@@ -4,48 +4,15 @@
 :root {
   // colors
   --dark: #263238;
+  --grey: #cfd8dc;
   --light: #eceff1;
   --color-white: #ffffff;
-  --light-bg: --light; // #cfd8dc
   --nav-light: #0091ea;
   --nav-light-hover: #009fff;
   --nav-dark: #00fff1;
   --nav-dark-hover: #00ccc1;
-
-  // light
-  // box shadows
-  // --box-shadow: #c9cbcd;
-  // --box-shadow-nw: #a3a5a6;
-  // --box-shadow-inset: #ffffff;
-
-  // background linear gradients
-  --gradient-focused-from: #d4d7d9;
-  --gradient-focused-to: #fdffff;
   --gradient-disabled-from: var(--gradient-focused-to);
   --gradient-disabled-to: var(--gradient-focused-from);
-
-  // dark
-  // box shadows
-  // --box-shadow-darkest: #161e21;
-  // --box-shadow-dark: #202b30;
-  // --box-shadow-inset: #2c3a40;
-  // --box-shadow-nw: #36474f;
-
-  // background linear gradients
-  // --gradient-dark-focused-from: #222d32;
-  // --gradient-dark-focused-to: #29363c;
-
-  // shadows width
-  --shadow-width: 10px;
-  --shadow-offset-x: 5px;
-  --shadow-offset-y: -5px;
-
-  // border-radius
-  --square: 0;
-  --round: 50%;
-  --rounded: 20px;
-
-  // FX
 }
 
 @function rem($px) {

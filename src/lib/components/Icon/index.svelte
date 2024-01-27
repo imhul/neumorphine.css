@@ -17,6 +17,10 @@
         height: var(--size);
         text-align: center;
         vertical-align: middle;
+        text-rendering: auto;
+        text-decoration: none;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
     }
 
     :global(i.icon svg) {

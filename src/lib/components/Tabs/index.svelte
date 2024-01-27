@@ -21,7 +21,9 @@
     <div role="tabpanel" class="tabs-content">
         {#each tabs as tab, index}
             {#if index === activeTab}
-                <svelte:component this={tab.content} />
+                <div class="container">
+                    <svelte:component this={tab.content} />
+                </div>
             {/if}
         {/each}
     </div>
@@ -29,6 +31,7 @@
 
 <style lang="scss">
     .tabs {
+        flex: 1 0 auto;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
@@ -53,7 +56,7 @@
 
                 &.active {
                     border: rem(1) solid var(--dark);
-                    
+
                     &::before {
                         content: '';
                         position: absolute;
@@ -68,7 +71,24 @@
         }
 
         .tabs-content {
+            height: 100%;
             flex: 1 0 auto;
+
+            .container {
+                position: relative;
+                max-width: rem(640);
+                width: 100%;
+                height: 100%;
+                margin: 0 auto 0 rem(20);
+
+                @media screen and (min-width: 960px) {
+                    // margin: 0 auto 0 rem(20);
+                }
+
+                @media screen and (min-width: 1200px) {
+                    margin: 0 auto;
+                }
+            }
         }
     }
 </style>

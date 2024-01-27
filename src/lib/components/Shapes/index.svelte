@@ -1,14 +1,34 @@
 <script lang="ts">
-    import { angle, color, offset, coeff } from '$lib/store';
+    import { angle, color, offset, width, coeff } from '$lib/store';
     import { transformColor } from '$lib/utils/colors';
     import { shapes, states } from '$lib/utils/base';
+    import { getOffsetX, getOffsetY } from '$lib/utils/offset';
+    import Icon from '$lib/components/Icon/index.svelte';
 
     $: direction = 'NE';
-    $: shapeBGColor = transformColor($color, $coeff);
-    $: boxShadow = transformColor($color, 25 + $coeff);
-    $: boxShadowNW = transformColor($color, 55 + $coeff);
-    $: offsetX = Math.round(Math.cos((($angle - 90) * Math.PI) / 180) * $offset);
-    $: offsetY = Math.round(Math.sin((($angle - 90) * Math.PI) / 180) * $offset);
+    $: shapeBGColor = transformColor($color, 10 + $coeff);
+    $: boxShadow = transformColor($color, 60 + $coeff);
+    $: boxShadowNW = transformColor($color, 80 + $coeff);
+    $: boxShadowInset = transformColor($color, 20 + $coeff);
+    $: gradientFocusedFrom = transformColor($color, 50 + $coeff);
+    $: gradientFocusedTo = transformColor($color, 70 + $coeff);
+    $: offsetX = getOffsetX($angle, $offset);
+    $: offsetY = getOffsetY($angle, $offset);
+
+    $: styleObj = {
+        '--angle:': $angle,
+        '--offset-x:': offsetX + 'px',
+        '--offset-y:': offsetY + 'px',
+        '--color:': $color,
+        '--shape-bg:': shapeBGColor,
+        '--box-shadow:': boxShadow,
+        '--box-shadow-nw:': boxShadowNW,
+        '--box-shadow-inset: ': boxShadowInset,
+        '--shadow-width:': $width + 'px',
+        '--gradient-focused-from:': gradientFocusedFrom,
+        '--gradient-focused-to:': gradientFocusedTo
+    };
+
     $: {
         if ($angle > 0 && $angle < 90) {
             direction = 'NE';
@@ -20,34 +40,18 @@
             direction = 'NW';
         }
     }
-    $: styles =
-        '--angle: ' +
-        $angle +
-        ';--offset-x: ' +
-        offsetX + 'px' +
-        ';--offset-y: ' +
-        offsetY + 'px' +
-        ';--color: ' +
-        $color +
-        ';--shape-bg: ' +
-        shapeBGColor +
-        ';--box-shadow: ' +
-        boxShadow +
-        ';--box-shadow-nw: ' +
-        boxShadowNW +
-        ';--box-shadow-inset: ' +
-        $color +
-        ';--shadow-width: ' +
-        10 + 'px' +
-        ';';
+
+    $: styles = Object.entries(styleObj)
+        .map(([key, value]) => `${key} ${value}`)
+        .join('; ');
 </script>
 
-<div class="container" style={styles}>
+<div class="flex-wrapper" style={styles}>
     {#each shapes as shape}
         <div class="row">
             {#each states as state}
                 <div class="shape {shape.title} shape-{state.title} {direction}">
-                    <i class="icon">&#9763;</i>
+                    <Icon size={40} name="hashtag" color="var(--nav-light)" />
                     <span class="title">{state.title}</span>
                 </div>
             {/each}
@@ -56,40 +60,24 @@
 </div>
 
 <style lang="scss">
-    .container {
-        position: relative;
-        display: flex;
-        flex: 1 0 auto;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        max-width: rem(640);
-        width: 95%;
-        height: 100%;
-        margin: 0 auto;
+    .flex-wrapper {
+        padding: rem(20);
         background-color: var(--color);
-
-        @media screen and (min-width: 768px) {
-            width: 85%;
-        }
 
         .row {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             flex-wrap: wrap;
             width: 100%;
-            margin-bottom: rem(25);
+            margin: rem(25) 0;
 
             &:last-child {
                 border-bottom: none !important;
+                margin-bottom: 0;
             }
 
             @media screen and (min-width: 768px) {
                 flex-wrap: nowrap;
-            }
-
-            .shape {
-                min-width: rem(100);
             }
         }
     }
@@ -103,14 +91,13 @@
     }
 
     .shape {
-        margin: 0 rem(25);
+        margin: 0 rem(25) rem(25);
         width: rem(100);
         height: rem(100);
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin-bottom: rem(50);
         font-size: rem(50);
         background: var(--shape-bg);
         color: var(--nav-light);
@@ -165,8 +152,9 @@
 
             &.NW {
                 box-shadow:
-                inset var(--offset-x) var(--offset-x) var(--shadow-width) var(--box-shadow-nw),
-                inset var(--offset-y) var(--offset-y) var(--shadow-width) var(--box-shadow-inset);
+                    inset var(--offset-x) var(--offset-x) var(--shadow-width) var(--box-shadow-nw),
+                    inset var(--offset-y) var(--offset-y) var(--shadow-width)
+                        var(--box-shadow-inset);
             }
         }
 
@@ -269,13 +257,5 @@
         .title {
             font-size: rem(10);
         }
-    }
-
-    .icon {
-        display: inline-block;
-        text-rendering: auto;
-        text-decoration: none;
-        font-style: normal;
-        -webkit-font-smoothing: antialiased;
     }
 </style>

@@ -4,6 +4,24 @@
     import Footer from '$lib/components/Footer/index.svelte';
 </script>
 
-<Tabs />
-<Config />
-<Footer />
+<div class="output">
+    <div class="wrapper">
+        <Tabs />
+        <Config />
+    </div>
+    <Footer />
+</div>
+
+<style lang="scss">
+    .output {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+
+        .wrapper {
+            width: 100%;
+        }
+    }
+</style>
