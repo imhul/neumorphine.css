@@ -45,6 +45,7 @@
             align-items: flex-end;
             justify-content: flex-start;
             border-right: rem(1) solid var(--dark);
+            padding-top: rem(40);
 
             .tab {
                 position: relative;

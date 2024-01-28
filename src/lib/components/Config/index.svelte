@@ -20,7 +20,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="config-toggle" on:click={() => (show = true)} role="button" tabindex="0">
-    <Icon size={25} name="cog" color="var(--nav-light)" />
+    <Icon size={26} name="cog" color="var(--nav-light)" />
 </div>
 
 {#if show}
@@ -35,6 +35,15 @@
                 <div class="info title">Background Color</div>
                 <input class="circle color-picker" bind:value={$color} type="color" />
                 <label class="info">
+                    <div class="btn-wrapper">
+                        {#if $color !== '#ffffff'}
+                            <Tooltip position="up" text="Reset">
+                                <button on:click={() => color.set('#ffffff')}>
+                                    <Icon size={26} name="refresh" />
+                                </button>
+                            </Tooltip>
+                        {/if}
+                    </div>
                     <input type="text" bind:value={$color} />
                 </label>
             </div>
@@ -51,15 +60,31 @@
                 >
                     <div
                         class="radius"
+                        class:active={clicked}
                         style="transform: rotate({$angle}deg) translate(-50%, -50%);"
                     >
-                        <div class="label" class:active={clicked} />
+                        <svg class="label" width="20" height="20" viewBox="0 0 20 20">
+                            <polygon
+                                fill="none"
+                                stroke="#000"
+                                points="19.5 5.9 19.5 14.1 14.5 10.4 14.5 15.5 .5 15.5 .5 4.5 14.5 4.5 14.5 9.6 19.5 5.9"
+                            />
+                        </svg>
                     </div>
                     <div class="tooltip">
-                        <Icon size={34} name={clicked ? 'unlock' : 'lock'} color="var(--light)" />
+                        <Icon size={34} name={clicked ? 'lock' : 'pencil'} color="var(--light)" />
                     </div>
                 </div>
                 <label class="info">
+                    <div class="btn-wrapper">
+                        {#if $angle !== 45}
+                            <Tooltip position="up" text="Reset">
+                                <button on:click={() => angle.set(45)}>
+                                    <Icon size={26} name="refresh" />
+                                </button>
+                            </Tooltip>
+                        {/if}
+                    </div>
                     <input type="text" bind:value={$angle} />
                     <!-- &deg; -->
                 </label>
@@ -75,7 +100,7 @@
                 {#if $coeff > 0}
                     <Tooltip position="up" text="Reset">
                         <button on:click={() => coeff.set(0)}>
-                            <Icon size={34} name="refresh" />
+                            <Icon size={26} name="refresh" />
                         </button>
                     </Tooltip>
                 {/if}
@@ -90,7 +115,7 @@
                 {#if $offset !== 5}
                     <Tooltip position="up" text="Reset">
                         <button on:click={() => offset.set(5)}>
-                            <Icon size={34} name="refresh" />
+                            <Icon size={26} name="refresh" />
                         </button>
                     </Tooltip>
                 {/if}
@@ -105,19 +130,33 @@
                 {#if $width !== 10}
                     <Tooltip position="up" text="Reset">
                         <button on:click={() => width.set(10)}>
-                            <Icon size={34} name="refresh" />
+                            <Icon size={26} name="refresh" />
                         </button>
                     </Tooltip>
                 {/if}
             </div>
         </div>
         <pre>
-        {code}
-    </pre>
+            {code}
+        </pre>
     </div>
 {/if}
 
 <style lang="scss">
+    %btn-wrapper {
+        flex: 0 0 rem(40);
+        width: rem(40);
+        height: rem(40);
+
+        button {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background-color: transparent;
+            cursor: pointer;
+        }
+    }
+
     .close,
     .config-toggle {
         cursor: pointer;
@@ -221,17 +260,10 @@
             }
 
             .btn-wrapper {
-                flex: 0 0 rem(40);
-                width: rem(40);
-                height: rem(40);
-
-                button {
-                    width: 100%;
-                    height: 100%;
-                    border: 0;
-                    background-color: transparent;
-                    cursor: pointer;
-                }
+                @extend %btn-wrapper;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
 
@@ -291,25 +323,59 @@
                         }
                     }
 
+                    // @keyframes pulse {
+                    //     0% {
+                    //         transform: scale(0.95);
+                    //         opacity: 1;
+                    //     }
+                    //     100% {
+                    //         transform: scale(1);
+                    //         opacity: 0;
+                    //     }
+                    // }
+
                     .radius {
                         position: relative;
                         top: rem(37);
                         left: 50%;
                         width: rem(1);
                         height: 50%;
-                        background-color: var(--dark);
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 50%;
+                            width: rem(50);
+                            height: 100%;
+                            transform: translateX(-50%);
+                            clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%);
+                            // background: radial-gradient(
+                            //     circle,
+                            //     rgba(255, 255, 255, 1) 0%,
+                            //     rgba(255, 255, 255, 0) 100%
+                            // );
+                        }
+
+                        &.active {
+                            &::before {
+                                background: radial-gradient(
+                                    circle,
+                                    rgba(255, 255, 255, 1) 0%,
+                                    rgba(255, 255, 255, 0) 100%
+                                );
+                                animation: pulse 2s infinite;
+                            }
+                        }
 
                         .label {
                             position: relative;
                             top: rem(-5);
-                            left: rem(-5);
-                            width: rem(10);
-                            height: rem(10);
-                            background-color: var(--dark);
-                            border-radius: 50%;
+                            left: rem(-9);
+                            transform: rotate(90deg);
 
-                            &.active {
-                                background-color: var(--nav-light);
+                            polygon {
+                                fill: var(--dark);
                             }
                         }
                     }
@@ -334,8 +400,17 @@
                     text-align: center;
                 }
 
-                label {
+                label.info {
+                    position: relative;
                     width: 50%;
+
+                    .btn-wrapper {
+                        @extend %btn-wrapper;
+                        position: absolute;
+                        top: rem(-4);
+                        right: rem(-45);
+                        
+                    }
 
                     input {
                         display: block;

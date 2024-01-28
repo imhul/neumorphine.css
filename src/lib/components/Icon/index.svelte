@@ -6,7 +6,7 @@
     export let color = 'var(--dark)';
 </script>
 
-<i class="icon" style="--size: {Math.round(size / 16)}rem;--color: {color};">
+<i class="icon" style="--size: {Math.round(size / 16 * 1000) / 1000}rem;--color: {color};">
     {@html icons[name]}
 </i>
 
