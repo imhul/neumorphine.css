@@ -409,7 +409,6 @@
                         position: absolute;
                         top: rem(-4);
                         right: rem(-45);
-                        
                     }
 
                     input {

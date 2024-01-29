@@ -1,49 +1,50 @@
-  // colors
-  $dark: #263238;
-  $light: #eceff1;
-  $light-bg: $light; // #cfd8dc
-  $nav-light: #0091ea;
-  $nav-light-hover: #009fff;
-  $nav-dark: #00fff1;
-  $nav-dark-hover: #00ccc1;
-  
-  // light
-  // box shadows
-  $box-shadow-light: #c9cbcd;
-  $box-shadow-nw: #a3a5a6;
-  $box-shadow-inset: #ffffff;
-  
-  // background linear gradients
-  $gradient-focused-from: #d4d7d9;
-  $gradient-focused-to: #fdffff;
-  $gradient-disabled-from: $gradient-focused-to;
-  $gradient-disabled-to: $gradient-focused-from;
-  
-  // dark
-  // box shadows
-  $box-shadow-darkest: #161e21;
-  $box-shadow-dark: #202b30;
-  $box-shadow-inset: #2c3a40;
-  $box-shadow-nw: #36474f;
-  
-  // background linear gradients
-  $gradient-dark-focused-from: #222d32;
-  $gradient-dark-focused-to: #29363c;
-  
-  // shadows width
-  $shadow-width: 10px;
-  $shadow-offset-x: 5px;
-  $shadow-offset-y: -5px;
-  
-  // border-radius
-  $square: 0;
-  $round: 50%;
-  $rounded: 20px;
+// colors
+$dark: #263238;
+$light: #eceff1;
+$light-bg: $light; // #cfd8dc
+$nav-light: #0091ea;
+$nav-light-hover: #009fff;
+$nav-dark: #00fff1;
+$nav-dark-hover: #00ccc1;
+
+// light
+// box shadows
+$box-shadow-light: #c9cbcd;
+$box-shadow-nw: #a3a5a6;
+$box-shadow-inset: #ffffff;
+
+// background linear gradients
+$gradient-focused-from: #d4d7d9;
+$gradient-focused-to: #fdffff;
+$gradient-disabled-from: $gradient-focused-to;
+$gradient-disabled-to: $gradient-focused-from;
+
+// dark
+// box shadows
+$box-shadow-darkest: #161e21;
+$box-shadow-dark: #202b30;
+$box-shadow-inset: #2c3a40;
+$box-shadow-nw: #36474f;
+
+// background linear gradients
+$gradient-dark-focused-from: #222d32;
+$gradient-dark-focused-to: #29363c;
+
+// shadows width
+$shadow-width: 10px;
+$shadow-offset-x: 5px;
+$shadow-offset-y: -5px;
+
+// border-radius
+$square: 0;
+$round: 50%;
+$rounded: 20px;
 
 // ----default-----
 
 %nw {
-    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-nw,
+    box-shadow:
+        $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-nw,
         $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-inset;
 }
 
@@ -64,7 +65,8 @@
 
 // ----active-----
 %nw-active {
-    box-shadow: inset $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-nw,
+    box-shadow:
+        inset $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-nw,
         inset $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-inset;
 }
 
@@ -111,7 +113,8 @@
 // ---disabled----
 %nw-disabled {
     background: linear-gradient(145deg, $gradient-disabled-from, $gradient-disabled-to);
-    box-shadow: $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-nw,
+    box-shadow:
+        $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-nw,
         $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-inset;
 }
 

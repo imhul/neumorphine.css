@@ -9,7 +9,13 @@ export const transformColor = (color: string, coeff: number) => {
     g = Math.max(0, Math.min(g, 255));
     b = Math.max(0, Math.min(b, 255));
 
-    return '#' + (r < 16 ? '0' : '') + r.toString(16) +
-        (g < 16 ? '0' : '') + g.toString(16) +
-        (b < 16 ? '0' : '') + b.toString(16);
-}
+    return (
+        '#' +
+        (r < 16 ? '0' : '') +
+        r.toString(16) +
+        (g < 16 ? '0' : '') +
+        g.toString(16) +
+        (b < 16 ? '0' : '') +
+        b.toString(16)
+    );
+};

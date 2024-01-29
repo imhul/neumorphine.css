@@ -1,3 +1,1 @@
-<div class="inputs">
-    inputs
-</div>
+<div class="inputs">inputs</div>

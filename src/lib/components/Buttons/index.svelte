@@ -1,3 +1,1 @@
-<div class="buttons">
-    buttons
-</div>
+<div class="buttons">buttons</div>

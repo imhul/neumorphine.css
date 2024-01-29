@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
 export const color = writable('#c3a2a2'); // #ffffff
 
