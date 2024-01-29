@@ -1,11 +1,10 @@
 <script lang="ts">
     import { angle, color, offset, width, coeff } from '$lib/store';
     import { transformColor } from '$lib/utils/colors';
-    import { shapes, states } from '$lib/utils/base';
+    import { shapes, states } from '$lib/utils/config';
     import { getOffsetX, getOffsetY } from '$lib/utils/offset';
     import Icon from '$lib/components/Icon/index.svelte';
 
-    $: direction = 'NE';
     $: shapeBGColor = transformColor($color, 10 + $coeff);
     $: boxShadow = transformColor($color, 60 + $coeff);
     $: boxShadowNW = transformColor($color, 80 + $coeff);
@@ -29,18 +28,6 @@
         '--gradient-focused-to:': gradientFocusedTo
     };
 
-    $: {
-        if ($angle > 0 && $angle < 90) {
-            direction = 'NE';
-        } else if ($angle > 90 && $angle < 180) {
-            direction = 'SE';
-        } else if ($angle > 180 && $angle < 270) {
-            direction = 'SW';
-        } else if ($angle < 0) {
-            direction = 'NW';
-        }
-    }
-
     $: styles = Object.entries(styleObj)
         .map(([key, value]) => `${key} ${value}`)
         .join('; ');
@@ -50,7 +37,7 @@
     {#each shapes as shape}
         <div class="row">
             {#each states as state}
-                <div class="shape {shape.title} shape-{state.title} {direction}">
+                <div class="shape {shape.title} shape-{state.title}">
                     <Icon size={40} name="hashtag" color="var(--nav-light)" />
                     <span class="title">{state.title}</span>
                 </div>
@@ -91,6 +78,21 @@
     }
 
     .shape {
+        --shadow: var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow),
+            var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow-inset);
+        --inner-shadow: inset var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow),
+            inset var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow-inset);
+        --focused-gradient: linear-gradient(
+            var(--angle),
+            var(--gradient-focused-from),
+            var(--gradient-focused-to)
+        );
+        --disabled-gradient: linear-gradient(
+            var(--angle),
+            var(--gradient-disabled-from),
+            var(--gradient-disabled-to)
+        );
+
         margin: 0 rem(25) rem(25);
         width: rem(100);
         height: rem(100);
@@ -103,155 +105,21 @@
         color: var(--nav-light);
 
         &-default {
-            &.NE {
-                box-shadow:
-                    var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow),
-                    var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow-inset);
-            }
-
-            &.SE {
-                box-shadow:
-                    var(--offset-y) var(--offset-y) var(--shadow-width) var(--box-shadow),
-                    var(--offset-x) var(--offset-x) var(--shadow-width) var(--box-shadow-inset);
-            }
-
-            &.SW {
-                box-shadow:
-                    var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow),
-                    var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow-inset);
-            }
-
-            &.NW {
-                box-shadow:
-                    var(--offset-x) var(--offset-x) var(--shadow-width) var(--box-shadow-nw),
-                    var(--offset-y) var(--offset-y) var(--shadow-width) var(--box-shadow-inset);
-            }
+            box-shadow: var(--shadow);
         }
 
         &-active {
-            &.NE {
-                box-shadow:
-                    inset var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow),
-                    inset var(--offset-x) var(--offset-y) var(--shadow-width)
-                        var(--box-shadow-inset);
-            }
-
-            &.SE {
-                box-shadow:
-                    inset var(--offset-y) var(--offset-y) var(--shadow-width) var(--box-shadow),
-                    inset var(--offset-x) var(--offset-x) var(--shadow-width)
-                        var(--box-shadow-inset);
-            }
-
-            &.SW {
-                box-shadow:
-                    inset var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow),
-                    inset var(--offset-y) var(--offset-x) var(--shadow-width)
-                        var(--box-shadow-inset);
-            }
-
-            &.NW {
-                box-shadow:
-                    inset var(--offset-x) var(--offset-x) var(--shadow-width) var(--box-shadow-nw),
-                    inset var(--offset-y) var(--offset-y) var(--shadow-width)
-                        var(--box-shadow-inset);
-            }
+            box-shadow: var(--inner-shadow);
         }
 
         &-focused {
-            // 225deg
-            &.NE {
-                background: linear-gradient(
-                    var(--angle),
-                    var(--gradient-focused-from),
-                    var(--gradient-focused-to)
-                );
-                box-shadow:
-                    var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow),
-                    var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow-inset);
-            }
-
-            &.SE {
-                // 315deg
-                background: linear-gradient(
-                    var(--angle),
-                    var(--gradient-focused-from),
-                    var(--gradient-focused-to)
-                );
-                box-shadow:
-                    var(--offset-y) var(--offset-y) var(--shadow-width) var(--box-shadow),
-                    var(--offset-x) var(--offset-x) var(--shadow-width) var(--box-shadow-inset);
-            }
-
-            &.SW {
-                // 45deg
-                background: linear-gradient(
-                    var(--angle),
-                    var(--gradient-focused-from),
-                    var(--gradient-focused-to)
-                );
-                box-shadow:
-                    var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow),
-                    var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow-inset);
-            }
-
-            &.NW {
-                // 145deg
-                background: linear-gradient(
-                    var(--angle),
-                    var(--gradient-focused-from),
-                    var(--gradient-focused-to)
-                );
-                box-shadow:
-                    var(--offset-x) var(--offset-x) var(--shadow-width) var(--box-shadow-nw),
-                    var(--offset-y) var(--offset-y) var(--shadow-width) var(--box-shadow-inset);
-            }
+            background: var(--focused-gradient);
+            box-shadow: var(--shadow);
         }
 
         &-disabled {
-            &.NE {
-                background: linear-gradient(
-                    var(--angle),
-                    var(--gradient-disabled-from),
-                    var(--gradient-disabled-to)
-                );
-                box-shadow:
-                    var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow),
-                    var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow-inset);
-            }
-
-            &.SE {
-                background: linear-gradient(
-                    var(--angle),
-                    var(--gradient-disabled-from),
-                    var(--gradient-disabled-to)
-                );
-                box-shadow:
-                    var(--offset-y) var(--offset-y) var(--shadow-width) var(--box-shadow),
-                    var(--offset-x) var(--offset-x) var(--shadow-width) var(--box-shadow-inset);
-            }
-
-            &.SW {
-                background: linear-gradient(
-                    var(--angle),
-                    var(--gradient-disabled-from),
-                    var(--gradient-disabled-to)
-                );
-                box-shadow:
-                    var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow),
-                    var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow-inset);
-            }
-
-            &.NW {
-                background: linear-gradient(
-                    var(--angle),
-                    var(--gradient-disabled-from),
-                    var(--gradient-disabled-to)
-                );
-                box-shadow:
-                    var(--offset-x) var(--offset-x) var(--shadow-width) var(--box-shadow-nw),
-                    var(--offset-y) var(--offset-y) var(--shadow-width) var(--box-shadow-inset);
-            }
+            background: var(--disabled-gradient);
+            box-shadow: var(--shadow);
         }
 
         .title {
