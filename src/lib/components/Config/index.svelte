@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { color, angle, offset, width, coeff, cssData } from '$lib/store';
+    import { color, angle, offset, width, coeff } from '$lib/store';
     import Icon from '$lib/components/Icon/index.svelte';
     import Tooltip from '$lib/components/Tooltip/index.svelte';
     import Code from './code.svelte';
@@ -381,7 +381,6 @@
 
                 label.info {
                     position: relative;
-                    width: 100%;
 
                     @media screen and (min-width: 1200px) {
                         width: 50%;

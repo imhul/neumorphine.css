@@ -120,11 +120,6 @@
 <style lang="scss">
     .pre {
         position: relative;
-        // max-width: rem(170);
-
-        // @media screen and (min-width: 1200px) {
-        //     max-width: rem(340);
-        // }
 
         .buttons {
             display: flex;
