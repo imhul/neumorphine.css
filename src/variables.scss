@@ -1,0 +1,29 @@
+/* Variables and mixins declared here will be available in all other SCSS files */
+@use 'sass:math';
+
+:root {
+    // colors
+    --dark: #263238;
+    --grey: #cfd8dc;
+    --light: #eceff1;
+    --color-white: #ffffff;
+    --nav-light: #0091ea;
+    --nav-light-hover: #009fff;
+    --nav-dark: #00fff1;
+    --nav-dark-hover: #00ccc1;
+    --gradient-disabled-from: var(--gradient-focused-to);
+    --gradient-disabled-to: var(--gradient-focused-from);
+}
+
+@function rem($px) {
+    @return math.div($px * 1px, 16px) * 1rem;
+}
+
+@mixin font($size, $weight, $line, $color) {
+    color: $color;
+    font-weight: $weight;
+    font-size: $size;
+    font-style: normal;
+    line-height: $line;
+    letter-spacing: normal;
+}

@@ -110,7 +110,9 @@
                     &:hover {
                         @extend %nw-dark-focused;
 
-                        text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
+                        text-shadow:
+                            0 0 5px $nav-dark,
+                            0 0 20px $nav-dark;
                     }
                 }
 
@@ -119,7 +121,9 @@
                         @extend %nw-dark-active;
 
                         color: $nav-dark;
-                        text-shadow: 0 0 5px $nav-dark, 0 0 20px $nav-dark;
+                        text-shadow:
+                            0 0 5px $nav-dark,
+                            0 0 20px $nav-dark;
                     }
                 }
             }
