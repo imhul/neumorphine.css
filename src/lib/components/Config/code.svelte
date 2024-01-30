@@ -8,8 +8,6 @@
         less: false
     };
 
-    // test
-
     let copied = false;
     const btns: State[] = Object.keys(state) as State[];
     $: code = 'Your code: ';
