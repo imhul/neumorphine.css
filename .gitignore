@@ -2,7 +2,6 @@
 /.git
 /.cache
 /dist
-yarn.lock
 .vscode
 .DS_Store
 /build
