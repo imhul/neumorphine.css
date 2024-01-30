@@ -35,7 +35,7 @@
             gradientFocusedTo,
             offsetX: offsetX + 'px',
             offsetY: offsetY + 'px',
-            shadowWidth: $width + 'px',
+            shadowWidth: $width + 'px'
         });
     }
 
@@ -117,7 +117,7 @@
 
         @media screen and (min-width: 1200px) {
             margin: 0 rem(25) rem(25);
-                }
+        }
 
         &-default {
             box-shadow: var(--shadow);

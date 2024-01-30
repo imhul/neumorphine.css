@@ -13,8 +13,8 @@ const defaults = {
     boxShadowInset: '',
     shadowWidth: '',
     gradientFocusedFrom: '',
-    gradientFocusedTo: '',
-}
+    gradientFocusedTo: ''
+};
 
 export const color = writable(defaults.color);
 

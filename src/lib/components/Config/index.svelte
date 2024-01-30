@@ -151,7 +151,7 @@
 
         @media screen and (min-width: 1200px) {
             flex: 0 0 rem(380);
-            }
+        }
 
         .range-wrapper {
             display: flex;
@@ -331,7 +331,7 @@
                             transform: translateX(-50%);
                             clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
                             opacity: 0.3;
-                            background: linear-gradient(var(--dark) 70%, var(--grey) 90%)
+                            background: linear-gradient(var(--dark) 70%, var(--grey) 90%);
                         }
 
                         &.active {
