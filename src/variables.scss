@@ -13,6 +13,8 @@
     --nav-dark-hover: #00ccc1;
     --gradient-disabled-from: var(--gradient-focused-to);
     --gradient-disabled-to: var(--gradient-focused-from);
+    --lamp-light: #fcf494;
+    --transparent: rgba(255, 255, 255, 0);
 }
 
 @function rem($px) {

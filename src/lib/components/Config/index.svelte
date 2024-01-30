@@ -316,9 +316,10 @@
                             clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%);
                             opacity: 0.3;
                             background: linear-gradient(
-                                rgb(252, 244, 148) 100%,
-                                rgba(255, 255, 255, 0) 50%
+                                var(--lamp-light) 100%,
+                                var(--transparent) 50%
                             );
+                            transition: opacity 0.35s;
                         }
 
                         &::after {
@@ -330,33 +331,18 @@
                             height: 100%;
                             transform: translateX(-50%);
                             clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-                            opacity: 0.3;
-                            background: linear-gradient(var(--dark) 70%, var(--grey) 90%);
+                            opacity: 0;
+                            background: linear-gradient(var(--dark) 25%, var(--transparent) 90%);
+                            transition: opacity 0.35s;
                         }
 
                         &.active {
-                            &::before {
-                                animation: pulse 1s infinite;
+                            &::before,
+                            &::after {
+                                opacity: 1;
                             }
                         }
 
-                        @keyframes pulse {
-                            0% {
-                                opacity: 1;
-                            }
-                            25% {
-                                opacity: 0.8;
-                            }
-                            50% {
-                                opacity: 0.4;
-                            }
-                            75% {
-                                opacity: 0.8;
-                            }
-                            100% {
-                                opacity: 1;
-                            }
-                        }
                         .label {
                             position: relative;
                             top: rem(-5);
