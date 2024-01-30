@@ -16,7 +16,10 @@
         const centerY = rect.height / 2;
         const mouseX = event.clientX - rect.left - centerX;
         const mouseY = event.clientY - rect.top - centerY;
-        angle.set(Math.round((Math.atan2(mouseY, mouseX) * 180) / Math.PI) + 90);
+        angle.set(
+            Math.round((Math.atan2(mouseY, mouseX) * 180) / Math.PI) +
+                90
+        );
         $tweenedAngle = $angle;
     };
 </script>
@@ -25,12 +28,18 @@
     <div class="flex-wrapper">
         <div class="flex">
             <div class="info title">Background Color</div>
-            <input class="circle color-picker" bind:value={$color} type="color" />
+            <input
+                class="circle color-picker"
+                bind:value={$color}
+                type="color"
+            />
             <label class="info">
                 <div class="btn-wrapper">
                     {#if $color !== '#ffffff'}
                         <Tooltip position="up" text="Reset">
-                            <button on:click={() => color.set('#ffffff')}>
+                            <button
+                                on:click={() => color.set('#ffffff')}
+                            >
                                 <Icon size={26} name="refresh" />
                             </button>
                         </Tooltip>
@@ -55,7 +64,12 @@
                     class:active={clicked}
                     style="transform: rotate({$tweenedAngle}deg) translate(-50%, -50%);"
                 >
-                    <svg class="label" width="20" height="20" viewBox="0 0 20 20">
+                    <svg
+                        class="label"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                    >
                         <polygon
                             fill="none"
                             stroke="#000"
@@ -64,7 +78,11 @@
                     </svg>
                 </div>
                 <div class="tooltip">
-                    <Icon size={34} name={clicked ? 'lock' : 'pencil'} color="var(--light)" />
+                    <Icon
+                        size={34}
+                        name={clicked ? 'lock' : 'pencil'}
+                        color="var(--light)"
+                    />
                 </div>
             </div>
             <label class="info">
@@ -86,7 +104,13 @@
     <div class="range-wrapper">
         <label class="input-wrapper">
             <span>Saturation Gain {$coeff}</span>
-            <input type="range" min="0" max="100" step="1" bind:value={$coeff} />
+            <input
+                type="range"
+                min="0"
+                max="100"
+                step="1"
+                bind:value={$coeff}
+            />
         </label>
         <div class="btn-wrapper">
             {#if $coeff > 0}
@@ -101,7 +125,13 @@
     <div class="range-wrapper">
         <label class="input-wrapper">
             <span>Shadow Offset {$offset}</span>
-            <input type="range" min="0" max="30" step="1" bind:value={$offset} />
+            <input
+                type="range"
+                min="0"
+                max="30"
+                step="1"
+                bind:value={$offset}
+            />
         </label>
         <div class="btn-wrapper">
             {#if $offset !== 5}
@@ -116,7 +146,13 @@
     <div class="range-wrapper">
         <label class="input-wrapper">
             <span>Shadow Width {$width}</span>
-            <input type="range" min="0" max="30" step="1" bind:value={$width} />
+            <input
+                type="range"
+                min="0"
+                max="30"
+                step="1"
+                bind:value={$width}
+            />
         </label>
         <div class="btn-wrapper">
             {#if $width !== 10}
@@ -297,7 +333,15 @@
                         &::-webkit-color-swatch {
                             border: 0;
                             border-radius: 50%;
-                            background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+                            background: conic-gradient(
+                                red,
+                                yellow,
+                                lime,
+                                aqua,
+                                blue,
+                                magenta,
+                                red
+                            );
                             background-color: yellow !important;
                         }
                     }
@@ -318,7 +362,12 @@
                             width: rem(50);
                             height: 100%;
                             transform: translateX(-50%);
-                            clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%);
+                            clip-path: polygon(
+                                40% 0%,
+                                60% 0%,
+                                100% 100%,
+                                0% 100%
+                            );
                             opacity: 0.3;
                             background: linear-gradient(
                                 var(--lamp-light) 100%,
@@ -335,9 +384,17 @@
                             width: rem(80);
                             height: 100%;
                             transform: translateX(-50%);
-                            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+                            clip-path: polygon(
+                                20% 0%,
+                                80% 0%,
+                                100% 100%,
+                                0% 100%
+                            );
                             opacity: 0;
-                            background: linear-gradient(var(--dark) 25%, var(--transparent) 90%);
+                            background: linear-gradient(
+                                var(--dark) 25%,
+                                var(--transparent) 90%
+                            );
                             transition: opacity 0.35s;
                         }
 

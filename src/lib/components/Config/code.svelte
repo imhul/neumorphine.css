@@ -101,16 +101,35 @@
 <div class="pre">
     <div class="buttons">
         {#each btns as btn}
-            <button class:active={state[btn] === true} on:click={() => getCode(btn)}>{btn}</button>
+            <button
+                class:active={state[btn] === true}
+                on:click={() => getCode(btn)}>{btn}</button
+            >
         {/each}
     </div>
 
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="copy" on:click={copy} role="button" tabindex="0">
         <div class:active={copied} class="tooltip" />
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-            <rect fill="none" stroke="#000" x="3.5" y="2.5" width="12" height="16" />
-            <polyline fill="none" stroke="#000" points="5 0.5 17.5 0.5 17.5 17" />
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+        >
+            <rect
+                fill="none"
+                stroke="#000"
+                x="3.5"
+                y="2.5"
+                width="12"
+                height="16"
+            />
+            <polyline
+                fill="none"
+                stroke="#000"
+                points="5 0.5 17.5 0.5 17.5 17"
+            />
         </svg>
     </div>
 
@@ -216,9 +235,11 @@
             code {
                 color: var(--nav-light);
                 font-size: rem(12);
-                font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
-                    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
-                    'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+                font-family: Consolas, 'Andale Mono WT', 'Andale Mono',
+                    'Lucida Console', 'Lucida Sans Typewriter',
+                    'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+                    'Liberation Mono', 'Nimbus Mono L', Monaco,
+                    'Courier New', Courier, monospace;
 
                 &::selection {
                     color: var(--color-white);

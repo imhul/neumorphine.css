@@ -45,7 +45,8 @@ $rounded: 20px;
 %nw {
     box-shadow:
         $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-nw,
-        $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-inset;
+        $shadow-offset-y $shadow-offset-y $shadow-width
+            $box-shadow-inset;
 }
 
 // %ne {
@@ -66,8 +67,10 @@ $rounded: 20px;
 // ----active-----
 %nw-active {
     box-shadow:
-        inset $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-nw,
-        inset $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-inset;
+        inset $shadow-offset-x $shadow-offset-x $shadow-width
+            $box-shadow-nw,
+        inset $shadow-offset-y $shadow-offset-y $shadow-width
+            $box-shadow-inset;
 }
 
 // %ne-active {
@@ -112,10 +115,15 @@ $rounded: 20px;
 
 // ---disabled----
 %nw-disabled {
-    background: linear-gradient(145deg, $gradient-disabled-from, $gradient-disabled-to);
+    background: linear-gradient(
+        145deg,
+        $gradient-disabled-from,
+        $gradient-disabled-to
+    );
     box-shadow:
         $shadow-offset-x $shadow-offset-x $shadow-width $box-shadow-nw,
-        $shadow-offset-y $shadow-offset-y $shadow-width $box-shadow-inset;
+        $shadow-offset-y $shadow-offset-y $shadow-width
+            $box-shadow-inset;
 }
 
 // %ne-disabled {

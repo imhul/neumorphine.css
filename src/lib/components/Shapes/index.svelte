@@ -1,5 +1,12 @@
 <script lang="ts">
-    import { angle, color, offset, width, coeff, cssData } from '$lib/store';
+    import {
+        angle,
+        color,
+        offset,
+        width,
+        coeff,
+        cssData
+    } from '$lib/store';
     import { transformColor } from '$lib/utils/colors';
     import { shapes, states } from '$lib/utils/config';
     import { getOffsetX, getOffsetY } from '$lib/utils/offset';
@@ -49,7 +56,11 @@
         <div class="row">
             {#each states as state}
                 <div class="shape {shape.title} shape-{state.title}">
-                    <Icon size={40} name="hashtag" color="var(--nav-light)" />
+                    <Icon
+                        size={40}
+                        name="hashtag"
+                        color="var(--nav-light)"
+                    />
                     <span class="title">{state.title}</span>
                 </div>
             {/each}
@@ -89,10 +100,14 @@
     }
 
     .shape {
-        --shadow: var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow),
-            var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow-inset);
-        --inner-shadow: inset var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow),
-            inset var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow-inset);
+        --shadow: var(--offset-y) var(--offset-x) var(--shadow-width)
+                var(--box-shadow),
+            var(--offset-y) var(--offset-x) var(--shadow-width)
+                var(--box-shadow-inset);
+        --inner-shadow: inset var(--offset-y) var(--offset-x)
+                var(--shadow-width) var(--box-shadow),
+            inset var(--offset-y) var(--offset-x) var(--shadow-width)
+                var(--box-shadow-inset);
         --focused-gradient: linear-gradient(
             var(--angle),
             var(--gradient-focused-from),
