@@ -21,13 +21,13 @@
             padding: rem(5) rem(10);
             background-color: #000;
             color: #fff;
-            font-size: 12px;
-            border-radius: 4px;
+            font-size: rem(12);
+            border-radius: rem(3);
             visibility: hidden;
             opacity: 0;
             transition:
                 opacity 0.35s,
-                visibility 0s linear 0.2s;
+                visibility 0s linear 0.35s;
         }
 
         &:hover {

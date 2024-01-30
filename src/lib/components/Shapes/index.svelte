@@ -1,32 +1,43 @@
 <script lang="ts">
-    import { angle, color, offset, width, coeff } from '$lib/store';
+    import { angle, color, offset, width, coeff, cssData } from '$lib/store';
     import { transformColor } from '$lib/utils/colors';
     import { shapes, states } from '$lib/utils/config';
     import { getOffsetX, getOffsetY } from '$lib/utils/offset';
     import Icon from '$lib/components/Icon/index.svelte';
 
-    $: shapeBGColor = transformColor($color, 10 + $coeff);
+    $: shapeBg = transformColor($color, 10 + $coeff);
     $: boxShadow = transformColor($color, 60 + $coeff);
-    $: boxShadowNW = transformColor($color, 80 + $coeff);
     $: boxShadowInset = transformColor($color, 20 + $coeff);
     $: gradientFocusedFrom = transformColor($color, 50 + $coeff);
     $: gradientFocusedTo = transformColor($color, 70 + $coeff);
     $: offsetX = getOffsetX($angle, $offset);
     $: offsetY = getOffsetY($angle, $offset);
-
     $: styleObj = {
         '--angle:': $angle,
         '--offset-x:': offsetX + 'px',
         '--offset-y:': offsetY + 'px',
         '--color:': $color,
-        '--shape-bg:': shapeBGColor,
+        '--shape-bg:': shapeBg,
         '--box-shadow:': boxShadow,
-        '--box-shadow-nw:': boxShadowNW,
         '--box-shadow-inset: ': boxShadowInset,
         '--shadow-width:': $width + 'px',
         '--gradient-focused-from:': gradientFocusedFrom,
         '--gradient-focused-to:': gradientFocusedTo
     };
+
+    $: {
+        cssData.set({
+            ...$cssData,
+            shapeBg,
+            boxShadow,
+            boxShadowInset,
+            gradientFocusedFrom,
+            gradientFocusedTo,
+            offsetX: offsetX + 'px',
+            offsetY: offsetY + 'px',
+            shadowWidth: $width + 'px',
+        });
+    }
 
     $: styles = Object.entries(styleObj)
         .map(([key, value]) => `${key} ${value}`)
@@ -78,10 +89,10 @@
     }
 
     .shape {
-        --shadow: var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow),
-            var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow-inset);
-        --inner-shadow: inset var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow),
-            inset var(--offset-x) var(--offset-y) var(--shadow-width) var(--box-shadow-inset);
+        --shadow: var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow),
+            var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow-inset);
+        --inner-shadow: inset var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow),
+            inset var(--offset-y) var(--offset-x) var(--shadow-width) var(--box-shadow-inset);
         --focused-gradient: linear-gradient(
             var(--angle),
             var(--gradient-focused-from),
@@ -93,7 +104,7 @@
             var(--gradient-disabled-to)
         );
 
-        margin: 0 rem(25) rem(25);
+        margin: 0 rem(10) rem(10);
         width: rem(100);
         height: rem(100);
         display: flex;
@@ -103,6 +114,10 @@
         font-size: rem(50);
         background: var(--shape-bg);
         color: var(--nav-light);
+
+        @media screen and (min-width: 1200px) {
+            margin: 0 rem(25) rem(25);
+                }
 
         &-default {
             box-shadow: var(--shadow);

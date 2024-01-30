@@ -1,11 +1,29 @@
 import { writable } from 'svelte/store';
 
-export const color = writable('#c3a2a2'); // #ffffff
+const defaults = {
+    color: '#ffffff',
+    angle: 45,
+    offset: 5,
+    offsetX: '',
+    offsetY: '',
+    coeff: 0,
+    width: 10,
+    shapeBg: '',
+    boxShadow: '',
+    boxShadowInset: '',
+    shadowWidth: '',
+    gradientFocusedFrom: '',
+    gradientFocusedTo: '',
+}
 
-export const angle = writable(45);
+export const color = writable(defaults.color);
 
-export const offset = writable(5);
+export const angle = writable(defaults.angle);
 
-export const coeff = writable(0);
+export const offset = writable(defaults.offset);
 
-export const width = writable(10);
+export const coeff = writable(defaults.coeff);
+
+export const width = writable(defaults.width);
+
+export const cssData = writable(defaults);

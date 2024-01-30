@@ -1,1 +1,1 @@
-<div class="inputs">inputs</div>
+<div class="inputs">Coming soon...</div>

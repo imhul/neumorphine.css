@@ -38,7 +38,7 @@
         margin-top: rem(100);
 
         .tablist {
-            min-height: calc(100vh - rem(200));
+            min-height: 50vh;
             flex: 0 0 rem(150);
             display: flex;
             flex-flow: column wrap;
@@ -81,10 +81,6 @@
                 width: 100%;
                 height: 100%;
                 margin: 0 auto 0 rem(20);
-
-                @media screen and (min-width: 960px) {
-                    // margin: 0 auto 0 rem(20);
-                }
 
                 @media screen and (min-width: 1200px) {
                     margin: 0 auto;

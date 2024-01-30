@@ -1,11 +1,10 @@
 <script lang="ts">
-    import { color, angle, offset, width, coeff } from '$lib/store';
+    import { color, angle, offset, width, coeff, cssData } from '$lib/store';
     import Icon from '$lib/components/Icon/index.svelte';
     import Tooltip from '$lib/components/Tooltip/index.svelte';
+    import Code from './code.svelte';
 
-    let code = 'Your code: ';
     let clicked = false;
-    let show = true;
 
     const onMouseMove = (event: any) => {
         if (!clicked) return;
@@ -18,129 +17,115 @@
     };
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="config-toggle" on:click={() => (show = true)} role="button" tabindex="0">
-    <Icon size={26} name="cog" color="var(--nav-light)" />
-</div>
-
-{#if show}
-    <div class="config">
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <div class="close" on:click={() => (show = false)} role="button" tabindex="0">
-            <Icon size={10} name="close" />
-        </div>
-
-        <div class="flex-wrapper">
-            <div class="flex">
-                <div class="info title">Background Color</div>
-                <input class="circle color-picker" bind:value={$color} type="color" />
-                <label class="info">
-                    <div class="btn-wrapper">
-                        {#if $color !== '#ffffff'}
-                            <Tooltip position="up" text="Reset">
-                                <button on:click={() => color.set('#ffffff')}>
-                                    <Icon size={26} name="refresh" />
-                                </button>
-                            </Tooltip>
-                        {/if}
-                    </div>
-                    <input type="text" bind:value={$color} />
-                </label>
-            </div>
-
-            <div class="flex">
-                <div class="info title">Light Source</div>
-                <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <div
-                    class="circle"
-                    on:mousemove={onMouseMove}
-                    on:click={() => (clicked = !clicked)}
-                    role="button"
-                    tabindex="0"
-                >
-                    <div
-                        class="radius"
-                        class:active={clicked}
-                        style="transform: rotate({$angle}deg) translate(-50%, -50%);"
-                    >
-                        <svg class="label" width="20" height="20" viewBox="0 0 20 20">
-                            <polygon
-                                fill="none"
-                                stroke="#000"
-                                points="19.5 5.9 19.5 14.1 14.5 10.4 14.5 15.5 .5 15.5 .5 4.5 14.5 4.5 14.5 9.6 19.5 5.9"
-                            />
-                        </svg>
-                    </div>
-                    <div class="tooltip">
-                        <Icon size={34} name={clicked ? 'lock' : 'pencil'} color="var(--light)" />
-                    </div>
+<aside>
+    <div class="flex-wrapper">
+        <div class="flex">
+            <div class="info title">Background Color</div>
+            <input class="circle color-picker" bind:value={$color} type="color" />
+            <label class="info">
+                <div class="btn-wrapper">
+                    {#if $color !== '#ffffff'}
+                        <Tooltip position="up" text="Reset">
+                            <button on:click={() => color.set('#ffffff')}>
+                                <Icon size={26} name="refresh" />
+                            </button>
+                        </Tooltip>
+                    {/if}
                 </div>
-                <label class="info">
-                    <div class="btn-wrapper">
-                        {#if $angle !== 45}
-                            <Tooltip position="up" text="Reset">
-                                <button on:click={() => angle.set(45)}>
-                                    <Icon size={26} name="refresh" />
-                                </button>
-                            </Tooltip>
-                        {/if}
-                    </div>
-                    <input type="text" bind:value={$angle} />
-                    <!-- &deg; -->
-                </label>
-            </div>
+                <input type="text" bind:value={$color} />
+            </label>
         </div>
 
-        <div class="range-wrapper">
-            <label class="input-wrapper">
-                <span>Saturation Gain {$coeff}</span>
-                <input type="range" min="0" max="100" step="1" bind:value={$coeff} />
-            </label>
-            <div class="btn-wrapper">
-                {#if $coeff > 0}
-                    <Tooltip position="up" text="Reset">
-                        <button on:click={() => coeff.set(0)}>
-                            <Icon size={26} name="refresh" />
-                        </button>
-                    </Tooltip>
-                {/if}
+        <div class="flex">
+            <div class="info title">Light Source</div>
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <div
+                class="circle"
+                on:mousemove={onMouseMove}
+                on:click={() => (clicked = !clicked)}
+                role="button"
+                tabindex="0"
+            >
+                <div
+                    class="radius"
+                    class:active={clicked}
+                    style="transform: rotate({$angle}deg) translate(-50%, -50%);"
+                >
+                    <svg class="label" width="20" height="20" viewBox="0 0 20 20">
+                        <polygon
+                            fill="none"
+                            stroke="#000"
+                            points="19.5 5.9 19.5 14.1 14.5 10.4 14.5 15.5 .5 15.5 .5 4.5 14.5 4.5 14.5 9.6 19.5 5.9"
+                        />
+                    </svg>
+                </div>
+                <div class="tooltip">
+                    <Icon size={34} name={clicked ? 'lock' : 'pencil'} color="var(--light)" />
+                </div>
             </div>
-        </div>
-        <div class="range-wrapper">
-            <label class="input-wrapper">
-                <span>Shadow Offset {$offset}</span>
-                <input type="range" min="0" max="30" step="1" bind:value={$offset} />
+            <label class="info">
+                <div class="btn-wrapper">
+                    {#if $angle !== 45}
+                        <Tooltip position="up" text="Reset">
+                            <button on:click={() => angle.set(45)}>
+                                <Icon size={26} name="refresh" />
+                            </button>
+                        </Tooltip>
+                    {/if}
+                </div>
+                <input type="text" bind:value={$angle} />
+                <!-- &deg; -->
             </label>
-            <div class="btn-wrapper">
-                {#if $offset !== 5}
-                    <Tooltip position="up" text="Reset">
-                        <button on:click={() => offset.set(5)}>
-                            <Icon size={26} name="refresh" />
-                        </button>
-                    </Tooltip>
-                {/if}
-            </div>
         </div>
-        <div class="range-wrapper">
-            <label class="input-wrapper">
-                <span>Shadow Width {$width}</span>
-                <input type="range" min="0" max="30" step="1" bind:value={$width} />
-            </label>
-            <div class="btn-wrapper">
-                {#if $width !== 10}
-                    <Tooltip position="up" text="Reset">
-                        <button on:click={() => width.set(10)}>
-                            <Icon size={26} name="refresh" />
-                        </button>
-                    </Tooltip>
-                {/if}
-            </div>
-        </div>
-        <pre>
-            {code}
-        </pre>
     </div>
-{/if}
+
+    <div class="range-wrapper">
+        <label class="input-wrapper">
+            <span>Saturation Gain {$coeff}</span>
+            <input type="range" min="0" max="100" step="1" bind:value={$coeff} />
+        </label>
+        <div class="btn-wrapper">
+            {#if $coeff > 0}
+                <Tooltip position="up" text="Reset">
+                    <button on:click={() => coeff.set(0)}>
+                        <Icon size={26} name="refresh" />
+                    </button>
+                </Tooltip>
+            {/if}
+        </div>
+    </div>
+    <div class="range-wrapper">
+        <label class="input-wrapper">
+            <span>Shadow Offset {$offset}</span>
+            <input type="range" min="0" max="30" step="1" bind:value={$offset} />
+        </label>
+        <div class="btn-wrapper">
+            {#if $offset !== 5}
+                <Tooltip position="up" text="Reset">
+                    <button on:click={() => offset.set(5)}>
+                        <Icon size={26} name="refresh" />
+                    </button>
+                </Tooltip>
+            {/if}
+        </div>
+    </div>
+    <div class="range-wrapper">
+        <label class="input-wrapper">
+            <span>Shadow Width {$width}</span>
+            <input type="range" min="0" max="30" step="1" bind:value={$width} />
+        </label>
+        <div class="btn-wrapper">
+            {#if $width !== 10}
+                <Tooltip position="up" text="Reset">
+                    <button on:click={() => width.set(10)}>
+                        <Icon size={26} name="refresh" />
+                    </button>
+                </Tooltip>
+            {/if}
+        </div>
+    </div>
+    <Code />
+</aside>
 
 <style lang="scss">
     %btn-wrapper {
@@ -157,37 +142,16 @@
         }
     }
 
-    .close,
-    .config-toggle {
-        cursor: pointer;
-    }
-
-    .config-toggle {
-        position: fixed;
-        top: rem(25);
-        right: rem(25);
-        width: auto;
-    }
-
-    .config {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: auto;
+    aside {
+        position: relative;
+        flex: 0 0 rem(190);
+        height: 100vh;
         background-color: var(--color-white);
-        box-shadow: 0 0 rem(10) rgba(0, 0, 0, 0.2);
         padding: rem(20);
 
         @media screen and (min-width: 1200px) {
-            top: rem(25);
-            right: rem(25);
-        }
-
-        .close {
-            position: absolute;
-            top: rem(10);
-            right: rem(10);
-        }
+            flex: 0 0 rem(380);
+            }
 
         .range-wrapper {
             display: flex;
@@ -284,7 +248,11 @@
                 margin-top: rem(20);
 
                 & > * {
-                    margin-bottom: rem(20);
+                    margin-bottom: rem(10);
+
+                    @media screen and (min-width: 1200px) {
+                        margin-bottom: rem(20);
+                    }
                 }
 
                 @media screen and (min-width: 1200px) {
@@ -307,9 +275,16 @@
                     }
 
                     &.color-picker {
+                        width: rem(50);
+                        height: rem(50);
                         display: block;
                         appearance: none;
                         border: 0;
+
+                        @media screen and (min-width: 1200px) {
+                            width: rem(150);
+                            height: rem(150);
+                        }
 
                         &::-webkit-color-swatch-wrapper {
                             padding: 0;
@@ -322,17 +297,6 @@
                             background-color: yellow !important;
                         }
                     }
-
-                    // @keyframes pulse {
-                    //     0% {
-                    //         transform: scale(0.95);
-                    //         opacity: 1;
-                    //     }
-                    //     100% {
-                    //         transform: scale(1);
-                    //         opacity: 0;
-                    //     }
-                    // }
 
                     .radius {
                         position: relative;
@@ -350,24 +314,49 @@
                             height: 100%;
                             transform: translateX(-50%);
                             clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%);
-                            // background: radial-gradient(
-                            //     circle,
-                            //     rgba(255, 255, 255, 1) 0%,
-                            //     rgba(255, 255, 255, 0) 100%
-                            // );
+                            opacity: 0.3;
+                            background: linear-gradient(
+                                rgb(252, 244, 148) 100%,
+                                rgba(255, 255, 255, 0) 50%
+                            );
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: 95%;
+                            left: 50%;
+                            width: rem(80);
+                            height: 100%;
+                            transform: translateX(-50%);
+                            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+                            opacity: 0.3;
+                            background: linear-gradient(var(--dark) 70%, var(--grey) 90%)
                         }
 
                         &.active {
                             &::before {
-                                background: radial-gradient(
-                                    circle,
-                                    rgba(255, 255, 255, 1) 0%,
-                                    rgba(255, 255, 255, 0) 100%
-                                );
-                                animation: pulse 2s infinite;
+                                animation: pulse 1s infinite;
                             }
                         }
 
+                        @keyframes pulse {
+                            0% {
+                                opacity: 1;
+                            }
+                            25% {
+                                opacity: 0.8;
+                            }
+                            50% {
+                                opacity: 0.4;
+                            }
+                            75% {
+                                opacity: 0.8;
+                            }
+                            100% {
+                                opacity: 1;
+                            }
+                        }
                         .label {
                             position: relative;
                             top: rem(-5);
@@ -396,13 +385,21 @@
                 }
 
                 .info.title {
-                    width: 50%;
+                    width: 100%;
                     text-align: center;
+
+                    @media screen and (min-width: 1200px) {
+                        width: 50%;
+                    }
                 }
 
                 label.info {
                     position: relative;
-                    width: 50%;
+                    width: 100%;
+
+                    @media screen and (min-width: 1200px) {
+                        width: 50%;
+                    }
 
                     .btn-wrapper {
                         @extend %btn-wrapper;
@@ -423,15 +420,6 @@
                     }
                 }
             }
-        }
-
-        pre {
-            width: 100%;
-            margin-top: rem(20);
-            padding: rem(20);
-            border: rem(1) solid var(--dark);
-            border-radius: rem(5);
-            background-color: var(--box-shadow-light);
         }
     }
 </style>
