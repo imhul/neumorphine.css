@@ -1,10 +1,13 @@
 <script lang="ts">
     import { color, angle, offset, width, coeff } from '$lib/store';
+    import { tweened } from 'svelte/motion';
+    // components
     import Icon from '$lib/components/Icon/index.svelte';
     import Tooltip from '$lib/components/Tooltip/index.svelte';
     import Code from './code.svelte';
 
     let clicked = false;
+    let tweenedAngle = tweened($angle);
 
     const onMouseMove = (event: any) => {
         if (!clicked) return;
@@ -14,6 +17,7 @@
         const mouseX = event.clientX - rect.left - centerX;
         const mouseY = event.clientY - rect.top - centerY;
         angle.set(Math.round((Math.atan2(mouseY, mouseX) * 180) / Math.PI) + 90);
+        $tweenedAngle = $angle;
     };
 </script>
 
@@ -49,7 +53,7 @@
                 <div
                     class="radius"
                     class:active={clicked}
-                    style="transform: rotate({$angle}deg) translate(-50%, -50%);"
+                    style="transform: rotate({$tweenedAngle}deg) translate(-50%, -50%);"
                 >
                     <svg class="label" width="20" height="20" viewBox="0 0 20 20">
                         <polygon
@@ -304,6 +308,7 @@
                         left: 50%;
                         width: rem(1);
                         height: 50%;
+                        transition: transform 0.35s ease;
 
                         &::before {
                             content: '';
