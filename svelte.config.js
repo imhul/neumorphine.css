@@ -9,7 +9,8 @@ const config = {
 
     kit: {
         paths: {
-            base: ''
+            base: '/neumorphine.css',
+            relative: false
         },
         // adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
         // If your environment is not supported or you settled on a specific environment, switch out the adapter.
