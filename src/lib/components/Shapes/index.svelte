@@ -87,18 +87,44 @@
                 </Tooltip>
             {/each}
         </div>
+        <div class="row">
+            {#each states as state}
+                <span class="text">{state.title}</span>
+            {/each}
+        </div>
     </div>
 </div>
 
 <style lang="scss">
     .container {
+        // --text-shadow: var(--offset-y) var(--offset-x)
+        //     var(--shadow-width) var(--box-shadow);
+        --shadow: var(--offset-y) var(--offset-x) var(--shadow-width)
+                var(--box-shadow),
+            var(--offset-y) var(--offset-x) var(--shadow-width)
+                var(--box-shadow-inset);
+        --inner-shadow: inset var(--offset-y) var(--offset-x)
+                var(--shadow-width) var(--box-shadow),
+            inset var(--offset-y) var(--offset-x) var(--shadow-width)
+                var(--box-shadow-inset);
+        --focused-gradient: linear-gradient(
+            var(--angle),
+            var(--gradient-focused-from),
+            var(--gradient-focused-to)
+        );
+        --disabled-gradient: linear-gradient(
+            var(--angle),
+            var(--gradient-disabled-from),
+            var(--gradient-disabled-to)
+        );
+
         flex: 1 0 auto;
         margin-top: rem(130);
 
         .flex-wrapper {
             max-width: rem(640);
             margin: 0 auto;
-            padding: rem(20);
+            padding: rem(20) rem(20) rem(40);
             background-color: var(--color);
 
             .row {
@@ -126,28 +152,6 @@
                 }
 
                 .shape {
-                    --shadow: var(--offset-y) var(--offset-x)
-                            var(--shadow-width) var(--box-shadow),
-                        var(--offset-y) var(--offset-x)
-                            var(--shadow-width)
-                            var(--box-shadow-inset);
-                    --inner-shadow: inset var(--offset-y)
-                            var(--offset-x) var(--shadow-width)
-                            var(--box-shadow),
-                        inset var(--offset-y) var(--offset-x)
-                            var(--shadow-width)
-                            var(--box-shadow-inset);
-                    --focused-gradient: linear-gradient(
-                        var(--angle),
-                        var(--gradient-focused-from),
-                        var(--gradient-focused-to)
-                    );
-                    --disabled-gradient: linear-gradient(
-                        var(--angle),
-                        var(--gradient-disabled-from),
-                        var(--gradient-disabled-to)
-                    );
-
                     margin: 0 rem(10) rem(10);
                     width: rem(100);
                     height: rem(100);
@@ -193,6 +197,15 @@
                         width: rem(50);
                         height: rem(50);
                     }
+                }
+
+                .text {
+                    text-shadow: var(--shadow);
+                    font-size: rem(32);
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    text-align: center;
+                    color: var(--shape-bg);
                 }
             }
         }
