@@ -1,6 +1,15 @@
-<script>
-    export let position = 'up';
-    export let text = '';
+<script lang="ts">
+    type Position =
+        | 'left'
+        | 'right'
+        | 'up'
+        | 'down'
+        | 'l-up'
+        | 'l-down'
+        | 'r-up'
+        | 'r-down';
+    export let position: Position = 'up';
+    export let text: string = '';
 </script>
 
 <div class="tooltip" data-position={position} data-text={text}>
@@ -62,25 +71,25 @@
             transform: translate(-50%, 100%);
         }
 
-        &[data-position='lup']::after {
+        &[data-position='l-up']::after {
             top: -50%;
             left: -100%;
             transform: translate(-100%, -100%);
         }
 
-        &[data-position='ldown']::after {
+        &[data-position='l-down']::after {
             bottom: -50%;
             left: -100%;
             transform: translate(-100%, 100%);
         }
 
-        &[data-position='rup']::after {
+        &[data-position='r-up']::after {
             top: -50%;
             right: -100%;
             transform: translate(100%, -100%);
         }
 
-        &[data-position='rdown']::after {
+        &[data-position='r-down']::after {
             bottom: -50%;
             right: -100%;
             transform: translate(100%, 100%);

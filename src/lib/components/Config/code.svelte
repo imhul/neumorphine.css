@@ -161,7 +161,7 @@
                 &:active,
                 &:focus {
                     color: var(--color-white);
-                    background-color: var(--nav-light-hover);
+                    background-color: var(--primary-hover);
                 }
             }
         }
@@ -176,12 +176,12 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            color: var(--nav-light);
+            color: var(--primary);
             border-radius: 50%;
             background-color: var(--grey);
 
             &:hover {
-                background-color: var(--nav-light-hover);
+                background-color: var(--primary-hover);
 
                 rect,
                 polyline {
@@ -224,16 +224,15 @@
             padding: rem(5);
             white-space: pre-wrap;
             overflow: auto;
-            max-height: rem(300);
             tab-size: 4;
+            line-height: 1;
 
-            @media screen and (min-width: 1200px) {
-                max-height: 40vh;
+            @media screen and (min-width: rem(1024)) {
                 padding: rem(20);
             }
 
             code {
-                color: var(--nav-light);
+                color: var(--primary);
                 font-size: rem(12);
                 font-family: Consolas, 'Andale Mono WT', 'Andale Mono',
                     'Lucida Console', 'Lucida Sans Typewriter',
@@ -243,7 +242,7 @@
 
                 &::selection {
                     color: var(--color-white);
-                    background-color: var(--nav-light);
+                    background-color: var(--primary);
                 }
             }
         }

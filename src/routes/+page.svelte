@@ -1,21 +1,23 @@
 <script lang="ts">
-    import Tabs from '$lib/components/Tabs/index.svelte';
+    import Shapes from '$lib/components/Shapes/index.svelte';
     import Config from '$lib/components/Config/index.svelte';
     import Header from '$lib/components/Header/index.svelte';
+    import Footer from '$lib/components/Footer/index.svelte';
+    import Description from '$lib/components/Description/index.svelte';
 </script>
 
 <div class="output">
     <Header />
     <div class="wrapper">
-        <Tabs />
+        <Shapes />
         <Config />
     </div>
+    <Description />
+    <Footer />
 </div>
 
 <style lang="scss">
     .output {
-        min-height: 100vh;
-
         .wrapper {
             width: 100%;
             height: 100%;

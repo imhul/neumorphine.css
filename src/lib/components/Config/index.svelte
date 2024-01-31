@@ -1,5 +1,12 @@
 <script lang="ts">
-    import { color, angle, offset, width, coeff } from '$lib/store';
+    import {
+        color,
+        angle,
+        offset,
+        width,
+        coeff,
+        showIcons
+    } from '$lib/store';
     import { tweened } from 'svelte/motion';
     // components
     import Icon from '$lib/components/Icon/index.svelte';
@@ -103,7 +110,10 @@
 
     <div class="range-wrapper">
         <label class="input-wrapper">
-            <span>Saturation Gain {$coeff}</span>
+            <span
+                >Saturation Gain <span class="tag">{$coeff}</span
+                ></span
+            >
             <input
                 type="range"
                 min="0"
@@ -124,7 +134,10 @@
     </div>
     <div class="range-wrapper">
         <label class="input-wrapper">
-            <span>Shadow Offset {$offset}</span>
+            <span
+                >Shadow Offset <span class="tag">{$offset}</span
+                ></span
+            >
             <input
                 type="range"
                 min="0"
@@ -145,7 +158,8 @@
     </div>
     <div class="range-wrapper">
         <label class="input-wrapper">
-            <span>Shadow Width {$width}</span>
+            <span>Shadow Width <span class="tag">{$width}</span></span
+            >
             <input
                 type="range"
                 min="0"
@@ -163,6 +177,16 @@
                 </Tooltip>
             {/if}
         </div>
+    </div>
+
+    <div class="switch-wrapper">
+        <input
+            id="toggle"
+            type="checkbox"
+            bind:checked={$showIcons}
+        />
+        <label for="toggle" class="switch" />
+        <span>{$showIcons ? 'Hide' : 'Show'} demo icons</span>
     </div>
     <Code />
 </aside>
@@ -185,11 +209,10 @@
     aside {
         position: relative;
         flex: 0 0 rem(190);
-        height: 100vh;
         background-color: var(--color-white);
         padding: rem(20);
 
-        @media screen and (min-width: 1200px) {
+        @media screen and (min-width: rem(1024)) {
             flex: 0 0 rem(380);
         }
 
@@ -222,15 +245,15 @@
                         width: 100%;
                         height: rem(2);
                         background: var(--dark);
-                        border-radius: rem(16);
+                        // border-radius: rem(16);
                         cursor: pointer;
                     }
 
                     &::-webkit-slider-thumb {
-                        width: rem(20);
-                        height: rem(20);
-                        margin-top: -0.6rem;
-                        background: var(--dark);
+                        width: rem(16);
+                        height: rem(16);
+                        margin-top: rem(-7);
+                        background: var(--primary);
                         border-radius: 50%;
                         cursor: pointer;
                         appearance: none;
@@ -257,9 +280,19 @@
 
                 span {
                     position: absolute;
-                    left: 0;
-                    top: rem(-7);
+                    right: 0;
+                    top: rem(-12);
                     font-size: rem(12);
+
+                    .tag {
+                        position: relative;
+                        top: unset;
+                        display: inline-block;
+                        padding: 0 rem(6);
+                        background-color: var(--grey);
+                        color: var(--dark);
+                        border-radius: rem(3);
+                    }
                 }
             }
 
@@ -277,7 +310,7 @@
             align-items: center;
             margin-bottom: rem(20);
 
-            @media screen and (min-width: 1200px) {
+            @media screen and (min-width: rem(1024)) {
                 flex-flow: row wrap;
             }
 
@@ -290,12 +323,12 @@
                 & > * {
                     margin-bottom: rem(10);
 
-                    @media screen and (min-width: 1200px) {
+                    @media screen and (min-width: rem(1024)) {
                         margin-bottom: rem(20);
                     }
                 }
 
-                @media screen and (min-width: 1200px) {
+                @media screen and (min-width: rem(1024)) {
                     margin-top: 0;
                 }
 
@@ -306,7 +339,7 @@
                     border-radius: 50%;
                     cursor: pointer;
 
-                    @media screen and (min-width: 1200px) {
+                    @media screen and (min-width: rem(1024)) {
                         margin: 0 rem(10) rem(20);
                     }
 
@@ -321,7 +354,7 @@
                         appearance: none;
                         border: 0;
 
-                        @media screen and (min-width: 1200px) {
+                        @media screen and (min-width: rem(1024)) {
                             width: rem(150);
                             height: rem(150);
                         }
@@ -436,7 +469,7 @@
                     width: 100%;
                     text-align: center;
 
-                    @media screen and (min-width: 1200px) {
+                    @media screen and (min-width: rem(1024)) {
                         width: 50%;
                     }
                 }
@@ -444,7 +477,7 @@
                 label.info {
                     position: relative;
 
-                    @media screen and (min-width: 1200px) {
+                    @media screen and (min-width: rem(1024)) {
                         width: 50%;
                     }
 
@@ -464,8 +497,54 @@
                         background-color: var(--grey);
                         border-radius: rem(3);
                         padding: rem(4);
+
+                        &:focus,
+                        &:hover {
+                            background-color: var(--primary);
+                            color: var(--color-white);
+                        }
                     }
                 }
+            }
+        }
+
+        .switch-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: rem(20);
+
+            // switch
+            .switch {
+                position: relative;
+                display: inline-block;
+                width: rem(30);
+                height: rem(2);
+                margin-right: rem(10);
+                background-color: var(--dark);
+                border-radius: rem(20);
+                transition: background-color 0.35s;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: rem(16);
+                    height: rem(16);
+                    border-radius: 50%;
+                    background-color: var(--primary);
+                    top: rem(-7);
+                    left: rem(-1);
+                    transition: left 0.35s;
+                }
+            }
+
+            input:checked + .switch::after {
+                left: rem(18);
+            }
+
+            input {
+                display: none;
             }
         }
     }

@@ -13,7 +13,8 @@ const defaults = {
     boxShadowInset: '',
     shadowWidth: '',
     gradientFocusedFrom: '',
-    gradientFocusedTo: ''
+    gradientFocusedTo: '',
+    showIcons: true
 };
 
 export const color = writable(defaults.color);
@@ -25,5 +26,7 @@ export const offset = writable(defaults.offset);
 export const coeff = writable(defaults.coeff);
 
 export const width = writable(defaults.width);
+
+export const showIcons = writable(defaults.showIcons);
 
 export const cssData = writable(defaults);
