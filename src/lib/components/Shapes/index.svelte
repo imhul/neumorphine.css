@@ -76,6 +76,17 @@
                 {/each}
             </div>
         {/each}
+        <div class="row">
+            {#each states as state}
+                <Tooltip text="input {state.title}">
+                    <input
+                        value={$showIcons ? state.title : ''}
+                        type="text"
+                        class="input shape shape-{state.title}"
+                    />
+                </Tooltip>
+            {/each}
+        </div>
     </div>
 </div>
 
@@ -168,6 +179,14 @@
                     &-disabled {
                         background: var(--disabled-gradient);
                         box-shadow: var(--shadow);
+                    }
+
+                    &.input {
+                        height: rem(26);
+                        padding: rem(2) rem(10);
+                        border: none;
+                        border-radius: rem(4);
+                        font-size: rem(16);
                     }
 
                     .helper {
