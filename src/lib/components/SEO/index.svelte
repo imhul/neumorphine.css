@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { data, defaultImage } from '$lib/utils/config';
+    import { data } from '$lib/utils/config';
     import { schema } from '$lib/utils/schema';
 </script>
 
@@ -8,8 +8,6 @@
 
     <!-- links -->
     <link rel="canonical" href={data.siteUrl} />
-    <!-- <link rel="preload" href={defaultImage} as="fetch" /> -->
-    <link rel="image_src" href={defaultImage} />
     <link href="https://github.com/imhul" rel="me" />
     <link rel="webmention" href={data.webmention} />
     <link rel="pingback" href={data.pingback} />
@@ -44,7 +42,6 @@
     <meta property="og:url" content={data.siteUrl} />
     <meta property="og:title" content={data.description} />
     <meta property="og:description" content={data.description} />
-    <meta property="og:image" content={defaultImage} />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
     <meta property="og:image:alt" content={data.description} />

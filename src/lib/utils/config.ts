@@ -29,5 +29,3 @@ export const data = {
     gitHub: 'https://github.com/imhul',
     googleId: 'GDG6jgEQmYmiM4K97vTzvksOLC97pq7b7f_8G0RIq8Y'
 };
-
-export const defaultImage = data.siteUrl + '/preview.png';
