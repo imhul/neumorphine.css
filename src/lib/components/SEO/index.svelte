@@ -8,7 +8,7 @@
 
     <!-- links -->
     <link rel="canonical" href={data.siteUrl} />
-    <link rel="preload" href={defaultImage} as="fetch" />
+    <!-- <link rel="preload" href={defaultImage} as="fetch" /> -->
     <link rel="image_src" href={defaultImage} />
     <link href="https://github.com/imhul" rel="me" />
     <link rel="webmention" href={data.webmention} />
