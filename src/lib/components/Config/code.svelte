@@ -1,5 +1,7 @@
 <script lang="ts">
     import { cssData, angle } from '$lib/store';
+    import Prism from 'prismjs';
+    import 'prismjs/themes/prism.min.css';
 
     type State = 'css' | 'scss' | 'less';
     const state: Record<State, boolean> = {
@@ -133,7 +135,15 @@
         </svg>
     </div>
 
-    <pre><code>{@html code}</code></pre>
+    <pre>
+        <code>
+            {@html Prism.highlight(
+                code,
+                Prism.languages['css'],
+                'css'
+            )}
+        </code>
+    </pre>
 </div>
 
 <style lang="scss">
