@@ -4,7 +4,7 @@
     "description": "neumorphism design library",
     "private": true,
     "author": "Tkachuk Zakhar",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/imhul/neumorphine.css/issues"
     },
@@ -41,6 +41,8 @@
     "type": "module",
     "dependencies": {
         "@fontsource/roboto": "^5.0.8",
-        "@sveltejs/adapter-static": "^3.0.1"
+        "@sveltejs/adapter-static": "^3.0.1",
+        "prismjs": "^1.29.0",
+        "schema-dts": "^1.1.2"
     }
 }

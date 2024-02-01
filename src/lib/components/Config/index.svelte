@@ -232,6 +232,7 @@
                 input[type='range'] {
                     width: 100%;
                     appearance: none;
+                    margin: 0;
 
                     &::-webkit-slider-runnable-track {
                         width: 100%;

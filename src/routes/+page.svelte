@@ -1,10 +1,13 @@
 <script lang="ts">
+    import SEO from '$lib/components/SEO/index.svelte';
     import Shapes from '$lib/components/Shapes/index.svelte';
     import Config from '$lib/components/Config/index.svelte';
     import Header from '$lib/components/Header/index.svelte';
     import Footer from '$lib/components/Footer/index.svelte';
     import Description from '$lib/components/Description/index.svelte';
 </script>
+
+<SEO />
 
 <div class="output">
     <Header />
