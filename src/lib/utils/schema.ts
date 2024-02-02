@@ -1,5 +1,5 @@
 import type { Graph } from 'schema-dts';
-import { data, defaultImage } from '$lib/utils/config';
+import { data } from '$lib/utils/config';
 
 const date = new Date().toISOString();
 
