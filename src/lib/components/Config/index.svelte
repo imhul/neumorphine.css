@@ -35,11 +35,13 @@
     <div class="flex-wrapper">
         <div class="flex">
             <div class="info title">Background Color</div>
-            <input
-                class="circle color-picker"
-                bind:value={$color}
-                type="color"
-            />
+            <label class="circle-label">
+                <input
+                    class="circle color-picker"
+                    bind:value={$color}
+                    type="color"
+                />
+            </label>
             <label class="info">
                 <div class="btn-wrapper">
                     {#if $color !== '#ffffff'}
@@ -65,6 +67,7 @@
                 on:click={() => (clicked = !clicked)}
                 role="button"
                 tabindex="0"
+                aria-label="Light Source"
             >
                 <div
                     class="radius"
@@ -352,6 +355,7 @@
                         width: rem(50);
                         height: rem(50);
                         display: block;
+                        margin-bottom: 0;
                         appearance: none;
                         border: 0;
 

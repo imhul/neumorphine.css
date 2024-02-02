@@ -12,6 +12,7 @@ const defaults = {
     boxShadow: '',
     boxShadowInset: '',
     shadowWidth: '',
+    textShadowWidth: '',
     gradientFocusedFrom: '',
     gradientFocusedTo: '',
     showIcons: true

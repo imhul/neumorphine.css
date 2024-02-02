@@ -8,7 +8,10 @@
         cssData,
         showIcons
     } from '$lib/store';
-    import { transformColor } from '$lib/utils/colors';
+    import {
+        transformColor,
+        getOppositeColor
+    } from '$lib/utils/colors';
     import { shapes, states } from '$lib/utils/config';
     import { getOffsetX, getOffsetY } from '$lib/utils/offset';
     import Icon from '$lib/components/Icon/index.svelte';
@@ -21,6 +24,8 @@
     $: gradientFocusedTo = transformColor($color, 70 + $coeff);
     $: offsetX = getOffsetX($angle, $offset);
     $: offsetY = getOffsetY($angle, $offset);
+    $: textShadowWidth = ($width / 2).toFixed(1) + 'px';
+    $: iconColor = getOppositeColor($color);
     $: styleObj = {
         '--angle:': $angle,
         '--offset-x:': offsetX + 'px',
@@ -30,8 +35,10 @@
         '--box-shadow:': boxShadow,
         '--box-shadow-inset: ': boxShadowInset,
         '--shadow-width:': $width + 'px',
+        '--text-shadow-width:': textShadowWidth,
         '--gradient-focused-from:': gradientFocusedFrom,
-        '--gradient-focused-to:': gradientFocusedTo
+        '--gradient-focused-to:': gradientFocusedTo,
+        '--icon-color:': iconColor
     };
 
     $: {
@@ -40,6 +47,7 @@
             shapeBg,
             boxShadow,
             boxShadowInset,
+            textShadowWidth,
             gradientFocusedFrom,
             gradientFocusedTo,
             offsetX: offsetX + 'px',
@@ -66,7 +74,7 @@
                                 <Icon
                                     size={40}
                                     name="hashtag"
-                                    color="var(--primary)"
+                                    color="var(--icon-color)"
                                 />
                             {:else}
                                 <div class="helper" />
@@ -97,8 +105,10 @@
 
 <style lang="scss">
     .container {
-        // --text-shadow: var(--offset-y) var(--offset-x)
-        //     var(--shadow-width) var(--box-shadow);
+        --text-shadow: var(--offset-y) var(--offset-x)
+                var(--text-shadow-width) var(--box-shadow),
+            var(--offset-y) var(--offset-x) var(--text-shadow-width)
+                var(--box-shadow-inset);
         --shadow: var(--offset-y) var(--offset-x) var(--shadow-width)
                 var(--box-shadow),
             var(--offset-y) var(--offset-x) var(--shadow-width)
@@ -200,7 +210,7 @@
                 }
 
                 .text {
-                    text-shadow: var(--shadow);
+                    text-shadow: var(--text-shadow);
                     font-size: rem(32);
                     font-weight: 900;
                     text-transform: uppercase;

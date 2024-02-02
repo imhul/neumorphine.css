@@ -3,9 +3,10 @@
     import Prism from 'prismjs';
     import 'prismjs/themes/prism.min.css';
 
-    type State = 'css' | 'scss' | 'less';
+    type State = 'css' | 'sass' | 'scss' | 'less';
     const state: Record<State, boolean> = {
         css: true,
+        sass: false,
         scss: false,
         less: false
     };
@@ -31,7 +32,30 @@
             `   background: linear-gradient(${$angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom});\n` +
             `   box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `   ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `}\n .text {\n` +
+            `   text-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadow},\n` +
+            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowInset};\n` +
             `}\n`,
+        sass:
+            `.shape \n` +
+            `   background-color: ${$cssData.shapeBg}\n` +
+            `   &-default \n` +
+            `       box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
+            `${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset}\n` +
+            `   &-active \n` +
+            `      box-shadow: inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
+            `      inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset}\n` +
+            `   &-focused \n` +
+            `      background: linear-gradient(${$angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo})\n` +
+            `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
+            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset}\n` +
+            `   &-disabled \n` +
+            `      background: linear-gradient(${$angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom})\n` +
+            `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
+            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset}\n` +
+            `.text \n` +
+            `   text-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadow},\n` +
+            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowInset}\n`,
         scss:
             `.shape {\n` +
             `   background-color: ${$cssData.shapeBg};\n` +
@@ -50,6 +74,9 @@
             `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
             `   }\n` +
+            `}\n .text {\n` +
+            `   text-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadow},\n` +
+            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowInset};\n` +
             `}\n`,
         less:
             `.shape {\n` +
@@ -69,6 +96,9 @@
             `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
             `   }\n` +
+            `}\n .text {\n` +
+            `   text-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadow},\n` +
+            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowInset};\n` +
             `}\n`
     };
 
@@ -111,7 +141,13 @@
     </div>
 
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="copy" on:click={copy} role="button" tabindex="0">
+    <div
+        class="copy"
+        on:click={copy}
+        role="button"
+        aria-label="copy"
+        tabindex="0"
+    >
         <div class:active={copied} class="tooltip" />
         <svg
             xmlns="http://www.w3.org/2000/svg"
