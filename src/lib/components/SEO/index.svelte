@@ -7,6 +7,13 @@
     <title>{data.description}</title>
 
     <!-- links -->
+    <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+    <link
+        rel="preload"
+        href="%sveltekit.assets%/preview.png"
+        as="fetch"
+    />
+    <link rel="image_src" href="%sveltekit.assets%/preview.png" />
     <link rel="canonical" href={data.siteUrl} />
     <link href="https://github.com/imhul" rel="me" />
     <link rel="webmention" href={data.webmention} />
@@ -45,6 +52,10 @@
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
     <meta property="og:image:alt" content={data.description} />
+    <meta
+        property="og:image"
+        content="%sveltekit.assets%/preview.png"
+    />
     <meta
         property="business:contact_data:country_name"
         content="Ukraine"
