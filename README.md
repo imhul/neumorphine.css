@@ -13,11 +13,3 @@
 ### demo
 
 [demo](https://imhul.github.io/neumorphine.css)
-
-### install:
-
-Coming soon
-
-### How to use:
-
-Coming soon

@@ -19,7 +19,7 @@ export const data = {
     email: 'blashirk@gmail.com',
     theme: '#FFFFFF',
     description:
-        'Neumorphine.css - Open Source Concept CSS UI Library',
+        'Neumorphine.css - Open Source CSS Code Generator for Neumorphism UI Design Concept',
     webmention:
         'https://webmention.io/imhul.github.io_neumorphine.css_/webmention',
     pingback:

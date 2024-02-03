@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { cssData, angle } from '$lib/store';
+    import { cssData } from '$lib/store';
     import Prism from 'prismjs';
     import 'prismjs/themes/prism.min.css';
 
@@ -25,11 +25,11 @@
             `   box-shadow: inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `   inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
             `}\n .shape .shape-focused {\n` +
-            `   background: linear-gradient(${$angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo});\n` +
+            `   background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo});\n` +
             `   box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `   ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
             `}\n .shape .shape-disabled {\n` +
-            `   background: linear-gradient(${$angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom});\n` +
+            `   background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom});\n` +
             `   box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `   ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
             `}\n .text {\n` +
@@ -46,11 +46,11 @@
             `      box-shadow: inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `      inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset}\n` +
             `   &-focused \n` +
-            `      background: linear-gradient(${$angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo})\n` +
+            `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo})\n` +
             `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset}\n` +
             `   &-disabled \n` +
-            `      background: linear-gradient(${$angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom})\n` +
+            `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom})\n` +
             `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset}\n` +
             `.text \n` +
@@ -66,11 +66,11 @@
             `      box-shadow: inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `      inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
             `   &-focused {\n` +
-            `      background: linear-gradient(${$angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo});\n` +
+            `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo});\n` +
             `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
             `   &-disabled {\n` +
-            `      background: linear-gradient(${$angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom});\n` +
+            `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom});\n` +
             `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
             `   }\n` +
@@ -88,11 +88,11 @@
             `      box-shadow: inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `      inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
             `   &-focused {\n` +
-            `      background: linear-gradient(${$angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo});\n` +
+            `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo});\n` +
             `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
             `   &-disabled {\n` +
-            `      background: linear-gradient(${$angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom});\n` +
+            `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom});\n` +
             `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
             `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
             `   }\n` +

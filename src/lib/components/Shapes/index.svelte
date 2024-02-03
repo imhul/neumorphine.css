@@ -1,60 +1,24 @@
 <script lang="ts">
-    import {
-        angle,
-        color,
-        offset,
-        width,
-        coeff,
-        cssData,
-        showIcons
-    } from '$lib/store';
-    import {
-        transformColor,
-        getOppositeColor
-    } from '$lib/utils/colors';
+    import { cssData } from '$lib/store';
     import { shapes, states } from '$lib/utils/config';
-    import { getOffsetX, getOffsetY } from '$lib/utils/offset';
+    // components
     import Icon from '$lib/components/Icon/index.svelte';
     import Tooltip from '$lib/components/Tooltip/index.svelte';
 
-    $: shapeBg = transformColor($color, 10 + $coeff);
-    $: boxShadow = transformColor($color, 60 + $coeff);
-    $: boxShadowInset = transformColor($color, 20 + $coeff);
-    $: gradientFocusedFrom = transformColor($color, 50 + $coeff);
-    $: gradientFocusedTo = transformColor($color, 70 + $coeff);
-    $: offsetX = getOffsetX($angle, $offset);
-    $: offsetY = getOffsetY($angle, $offset);
-    $: textShadowWidth = ($width / 2).toFixed(1) + 'px';
-    $: iconColor = getOppositeColor($color);
     $: styleObj = {
-        '--angle:': $angle,
-        '--offset-x:': offsetX + 'px',
-        '--offset-y:': offsetY + 'px',
-        '--color:': $color,
-        '--shape-bg:': shapeBg,
-        '--box-shadow:': boxShadow,
-        '--box-shadow-inset: ': boxShadowInset,
-        '--shadow-width:': $width + 'px',
-        '--text-shadow-width:': textShadowWidth,
-        '--gradient-focused-from:': gradientFocusedFrom,
-        '--gradient-focused-to:': gradientFocusedTo,
-        '--icon-color:': iconColor
+        '--angle:': $cssData.angle,
+        '--offset-x:': $cssData.offsetX,
+        '--offset-y:': $cssData.offsetY,
+        '--color:': $cssData.color,
+        '--shape-bg:': $cssData.shapeBg,
+        '--box-shadow:': $cssData.boxShadow,
+        '--box-shadow-inset: ': $cssData.boxShadowInset,
+        '--shadow-width:': $cssData.shadowWidth,
+        '--text-shadow-width:': $cssData.textShadowWidth,
+        '--gradient-focused-from:': $cssData.gradientFocusedFrom,
+        '--gradient-focused-to:': $cssData.gradientFocusedTo,
+        '--icon-color:': $cssData.iconColor
     };
-
-    $: {
-        cssData.set({
-            ...$cssData,
-            shapeBg,
-            boxShadow,
-            boxShadowInset,
-            textShadowWidth,
-            gradientFocusedFrom,
-            gradientFocusedTo,
-            offsetX: offsetX + 'px',
-            offsetY: offsetY + 'px',
-            shadowWidth: $width + 'px'
-        });
-    }
 
     $: styles = Object.entries(styleObj)
         .map(([key, value]) => `${key} ${value}`)
@@ -70,7 +34,7 @@
                         class="shape {shape.title} shape-{state.title}"
                     >
                         <Tooltip text="{shape.title} {state.title}">
-                            {#if $showIcons}
+                            {#if $cssData.showIcons}
                                 <Icon
                                     size={40}
                                     name="hashtag"
@@ -88,7 +52,7 @@
             {#each states as state}
                 <Tooltip text="input {state.title}">
                     <input
-                        value={$showIcons ? state.title : ''}
+                        value={$cssData.showIcons ? state.title : ''}
                         type="text"
                         class="input shape shape-{state.title}"
                     />
@@ -171,7 +135,7 @@
                     flex-direction: column;
                     font-size: rem(50);
                     background: var(--shape-bg);
-                    color: var(--primary);
+                    color: var(--icon-color);
 
                     @media screen and (min-width: rem(1024)) {
                         margin: 0 rem(25) rem(25);

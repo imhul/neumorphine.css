@@ -1,11 +1,15 @@
 <script lang="ts">
     import {
+        mode,
         color,
         angle,
         offset,
         width,
         coeff,
-        showIcons
+        showIcons,
+        lightColor,
+        darkColor,
+        defaults
     } from '$lib/store';
     import { tweened } from 'svelte/motion';
     // components
@@ -15,6 +19,9 @@
 
     let clicked = false;
     let tweenedAngle = tweened($angle);
+    $: isResetRequired =
+        ($mode && $lightColor !== defaults.lightColor) ||
+        (!$mode && $darkColor !== defaults.darkColor);
 
     const onMouseMove = (event: any) => {
         if (!clicked) return;
@@ -36,21 +43,43 @@
         <div class="flex">
             <div class="info title">Background Color</div>
             <label class="circle-label">
-                <input
-                    class="circle color-picker"
-                    bind:value={$color}
-                    type="color"
-                />
+                {#if $mode}
+                    <input
+                        class="circle color-picker"
+                        bind:value={$lightColor}
+                        type="color"
+                    />
+                {:else}
+                    <input
+                        class="circle color-picker"
+                        bind:value={$darkColor}
+                        type="color"
+                    />
+                {/if}
             </label>
             <label class="info">
                 <div class="btn-wrapper">
-                    {#if $color !== '#ffffff'}
+                    {#if isResetRequired}
                         <Tooltip position="up" text="Reset">
-                            <button
-                                on:click={() => color.set('#ffffff')}
-                            >
-                                <Icon size={26} name="refresh" />
-                            </button>
+                            {#if $mode}
+                                <button
+                                    on:click={() =>
+                                        lightColor.set(
+                                            defaults.lightColor
+                                        )}
+                                >
+                                    <Icon size={26} name="refresh" />
+                                </button>
+                            {:else}
+                                <button
+                                    on:click={() =>
+                                        darkColor.set(
+                                            defaults.darkColor
+                                        )}
+                                >
+                                    <Icon size={26} name="refresh" />
+                                </button>
+                            {/if}
                         </Tooltip>
                     {/if}
                 </div>
@@ -184,12 +213,21 @@
 
     <div class="switch-wrapper">
         <input
-            id="toggle"
+            id="toggle-icons"
             type="checkbox"
             bind:checked={$showIcons}
         />
-        <label for="toggle" class="switch" />
+        <label for="toggle-icons" class="switch" />
         <span>{$showIcons ? 'Hide' : 'Show'} demo icons</span>
+    </div>
+    <div class="switch-wrapper">
+        <input
+            id="toggle-mode"
+            type="checkbox"
+            bind:checked={$mode}
+        />
+        <label for="toggle-mode" class="switch" />
+        <span>{$mode ? 'Light' : 'Dark'} mode</span>
     </div>
     <Code />
 </aside>
