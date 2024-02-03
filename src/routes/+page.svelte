@@ -19,14 +19,50 @@
     <Footer />
 </div>
 
+<div class="mobile-helper">
+    <h1>
+        This application is not designed for mobile devices! We
+        recommend that you open it on your desktop or tablet.
+    </h1>
+</div>
+
 <style lang="scss">
     .output {
+        display: none;
+
         .wrapper {
             width: 100%;
             height: 100%;
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
+        }
+
+        @media screen and (min-width: 800px) {
+            display: block;
+        }
+    }
+
+    .mobile-helper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+
+        @media screen and (min-width: 800px) {
+            display: none;
+        }
+
+        h1 {
+            max-width: 60%;
+            font-size: rem(34);
+            line-height: 1;
+            text-align: center;
         }
     }
 </style>

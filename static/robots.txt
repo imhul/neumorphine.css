@@ -1,0 +1,12 @@
+# www.robotstxt.org/
+
+User-agent: *
+Disallow:
+User-agent: Yandex
+Disallow: /
+User-agent: Rambler
+Disallow: /
+User-agent: StackRambler
+Disallow: /
+
+Sitemap: https://imhul.github.io/neumorphine.css/sitemap.xml

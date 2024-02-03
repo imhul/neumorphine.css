@@ -3,6 +3,7 @@ import { data } from '$lib/utils/config';
 
 const date = new Date().toISOString();
 
+// https://github.com/google/schema-dts/tree/main?tab=readme-ov-file#graphs-and-ids
 export const schema: Graph = {
     '@context': 'https://schema.org',
     '@graph': [
