@@ -55,7 +55,9 @@
                         value={$cssData.showIcons ? state.title : ''}
                         type="text"
                         class="input shape shape-{state.title}"
+                        id="input-{state.title}"
                     />
+                    <label for="input-{state.title}" />
                 </Tooltip>
             {/each}
         </div>

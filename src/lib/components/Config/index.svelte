@@ -42,22 +42,29 @@
     <div class="flex-wrapper">
         <div class="flex">
             <div class="info title">Background Color</div>
-            <label class="circle-label">
+            <label
+                class="circle-label"
+                for={$mode
+                    ? 'light-color-circle'
+                    : 'dark-color-circle'}
+            >
                 {#if $mode}
                     <input
+                        id="light-color-circle"
                         class="circle color-picker"
                         bind:value={$lightColor}
                         type="color"
                     />
                 {:else}
                     <input
+                        id="dark-color-circle"
                         class="circle color-picker"
                         bind:value={$darkColor}
                         type="color"
                     />
                 {/if}
             </label>
-            <label class="info">
+            <div class="info reset">
                 <div class="btn-wrapper">
                     {#if isResetRequired}
                         <Tooltip position="up" text="Reset">
@@ -84,11 +91,24 @@
                     {/if}
                 </div>
                 {#if $mode}
-                    <input type="text" bind:value={$lightColor} />
+                    <input
+                        id="light-color-input"
+                        type="text"
+                        bind:value={$lightColor}
+                    />
                 {:else}
-                    <input type="text" bind:value={$darkColor} />
+                    <input
+                        id="dark-color-input"
+                        type="text"
+                        bind:value={$darkColor}
+                    />
                 {/if}
-            </label>
+                <label
+                    for={$mode
+                        ? 'light-color-input'
+                        : 'dark-color-input'}
+                />
+            </div>
         </div>
 
         <div class="flex">
@@ -128,7 +148,7 @@
                     />
                 </div>
             </div>
-            <label class="info">
+            <div class="info reset">
                 <div class="btn-wrapper">
                     {#if $angle !== 45}
                         <Tooltip position="up" text="Reset">
@@ -138,9 +158,10 @@
                         </Tooltip>
                     {/if}
                 </div>
-                <input type="text" bind:value={$angle} />
+                <input id="angle" type="text" bind:value={$angle} />
+                <label for="angle" />
                 <!-- &deg; -->
-            </label>
+            </div>
         </div>
     </div>
 
@@ -521,7 +542,7 @@
                     }
                 }
 
-                label.info {
+                .info.reset {
                     position: relative;
 
                     @media screen and (min-width: rem(1024)) {

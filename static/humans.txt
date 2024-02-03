@@ -1,31 +1,20 @@
 # humanstxt.org/
 # The humans responsible & technology colophon
 
-# TEAM
+/* TEAM */
 
     Zakhar Tkachuk -- frontend developer -- <blashirk@gmail.com>
 
-# THANKS
+/* THANKS */
 
     Kostyantyn Tkachuk - Thanks for support and love -- <kot.tkachuk@gmail.com>
-
-# TECHNOLOGY COLOPHON
-
-    CSS3, HTML5
-    Svelte, SvelteKit
-    GitHub Pages
-
                                 
 /* SITE */
-
                             
-Last update: 2020/MM/DD 
-
+Last update: 2020/01/18 
                             
-Standards: HTML5, CSS3,..
-
+Standards: HTML5, CSS3
                             
-Components: Modernizr, jQuery, etc.
-
+Components: SCSS, HTML5, Svelte, SvelteKit, GitHub Pages
                             
-Software: Software used for the development
+Software: VS Code, GitHub
