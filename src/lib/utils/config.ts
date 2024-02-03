@@ -11,6 +11,17 @@ export const states = [
     { id: 3, title: 'disabled' }
 ];
 
+export const defaults = {
+    lightColor: '#cfd8dc',
+    darkColor: '#546e7a',
+    angle: 45,
+    offset: 5,
+    coeff: 0,
+    width: 10,
+    showIcons: true,
+    mode: true // true for light, false for dark
+};
+
 export const data = {
     author: 'Tkachuk Zakhar',
     siteName: 'Neumorphine.css',

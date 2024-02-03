@@ -1,21 +1,11 @@
 import { writable, derived } from 'svelte/store';
 import { getOffsetX, getOffsetY } from '$lib/utils/offset';
+import { defaults } from '$lib/utils/config';
 import {
     getLightColor,
     getDarkColor,
     getOppositeColor
 } from '$lib/utils/colors';
-
-export const defaults = {
-    lightColor: '#ffffff',
-    darkColor: '#546e7a',
-    angle: 45,
-    offset: 5,
-    coeff: 0,
-    width: 10,
-    showIcons: true,
-    mode: true // true for light, false for dark
-};
 
 export const mode = writable(defaults.mode);
 export const lightColor = writable(defaults.lightColor);

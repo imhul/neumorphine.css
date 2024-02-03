@@ -8,9 +8,9 @@
         coeff,
         showIcons,
         lightColor,
-        darkColor,
-        defaults
+        darkColor
     } from '$lib/store';
+    import { defaults } from '$lib/utils/config';
     import { tweened } from 'svelte/motion';
     // components
     import Icon from '$lib/components/Icon/index.svelte';
