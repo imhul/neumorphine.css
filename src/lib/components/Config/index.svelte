@@ -83,7 +83,11 @@
                         </Tooltip>
                     {/if}
                 </div>
-                <input type="text" bind:value={$color} />
+                {#if $mode}
+                    <input type="text" bind:value={$lightColor} />
+                {:else}
+                    <input type="text" bind:value={$darkColor} />
+                {/if}
             </label>
         </div>
 

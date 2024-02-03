@@ -8,7 +8,7 @@ import {
 
 export const defaults = {
     lightColor: '#ffffff',
-    darkColor: '#263238',
+    darkColor: '#546e7a',
     angle: 45,
     offset: 5,
     coeff: 0,
