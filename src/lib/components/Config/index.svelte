@@ -90,6 +90,11 @@
                         </Tooltip>
                     {/if}
                 </div>
+                <label
+                    for={$mode
+                        ? 'light-color-input'
+                        : 'dark-color-input'}
+                />
                 {#if $mode}
                     <input
                         id="light-color-input"
@@ -103,11 +108,6 @@
                         bind:value={$darkColor}
                     />
                 {/if}
-                <label
-                    for={$mode
-                        ? 'light-color-input'
-                        : 'dark-color-input'}
-                />
             </div>
         </div>
 
@@ -158,8 +158,8 @@
                         </Tooltip>
                     {/if}
                 </div>
-                <input id="angle" type="text" bind:value={$angle} />
                 <label for="angle" />
+                <input id="angle" type="text" bind:value={$angle} />
                 <!-- &deg; -->
             </div>
         </div>

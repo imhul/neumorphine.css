@@ -51,13 +51,13 @@
         <div class="row">
             {#each states as state}
                 <Tooltip text="input {state.title}">
+                    <label for="input-{state.title}" />
                     <input
                         value={$cssData.showIcons ? state.title : ''}
                         type="text"
                         class="input shape shape-{state.title}"
                         id="input-{state.title}"
                     />
-                    <label for="input-{state.title}" />
                 </Tooltip>
             {/each}
         </div>
