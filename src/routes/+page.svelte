@@ -28,7 +28,8 @@
 
 <style lang="scss">
     .output {
-        display: none;
+        max-height: 100vh;
+        overflow: hidden;
 
         .wrapper {
             width: 100%;
@@ -39,29 +40,32 @@
         }
 
         @media screen and (min-width: 800px) {
-            display: block;
+            max-height: 100%;
+            overflow: unset;
         }
     }
 
     .mobile-helper {
         position: fixed;
-        top: 0;
+        bottom: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: calc(100vh - rem(90));
         display: flex;
+        flex-flow: column wrap;
         align-items: center;
         justify-content: center;
         color: var(--primary);
+        background-color: var(--light);
 
         @media screen and (min-width: 800px) {
             display: none;
         }
 
         h1 {
-            max-width: 60%;
+            max-width: 70%;
             font-size: rem(34);
-            line-height: 1;
+            line-height: 120%;
             text-align: center;
         }
     }

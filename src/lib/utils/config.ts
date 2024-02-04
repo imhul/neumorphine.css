@@ -12,7 +12,7 @@ export const states = [
 ];
 
 export const defaults = {
-    lightColor: '#cfd8dc',
+    lightColor: '#eceff1',
     darkColor: '#546e7a',
     angle: 45,
     offset: 5,
@@ -38,5 +38,6 @@ export const data = {
     datePublished: '2024-02-01T20:27:01.288Z',
     homePage: 'https://weblogic.netlify.app/',
     gitHub: 'https://github.com/imhul',
-    googleId: 'GDG6jgEQmYmiM4K97vTzvksOLC97pq7b7f_8G0RIq8Y'
+    googleId: 'GDG6jgEQmYmiM4K97vTzvksOLC97pq7b7f_8G0RIq8Y',
+    founder: 'https://www.linkedin.com/in/oleksandr-plyuto-b45194104/'
 };

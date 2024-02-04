@@ -1,6 +1,15 @@
-<header>
-    <h1>Neumorphine.css - Concept CSS Library</h1>
+<script lang="ts">
+    import logo from '$lib/assets/logo.svg';
+    import { data } from '$lib/utils/config';
+</script>
 
+<header>
+    <img
+        src={logo}
+        alt="Neumorphine Logo"
+        width="50"
+        title={data.siteName}
+    />
     <a
         href="https://github.com/imhul/neumorphine.css"
         target="_blank"
@@ -21,34 +30,32 @@
 
 <style lang="scss">
     header {
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0;
         width: 100%;
-        height: rem(50);
+        height: rem(90);
         display: flex;
         align-items: center;
         justify-content: flex-start;
         padding: 0 rem(20);
+        z-index: 1;
+        background-color: var(--light);
 
-        h1 {
-            font-size: rem(24);
-            color: var(--dark);
-            font-weight: 400;
+        @media screen and (min-width: 800px) {
+            position: absolute;
+            z-index: unset;
+            background-color: var(--transparent);
         }
 
         a {
             position: absolute;
             left: 50%;
-            top: rem(70);
-            transform: translateX(-50%);
+            top: 50%;
+            transform: translate(-50%, -50%);
             text-decoration: none;
             text-align: center;
             margin: 0 auto;
-
-            @media screen and (min-width: rem(1024)) {
-                top: rem(15);
-            }
 
             svg > path {
                 fill: var(--dark);
