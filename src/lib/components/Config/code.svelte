@@ -19,86 +19,86 @@
             `.shape {\n` +
             `   background-color: ${$cssData.shapeBg};\n` +
             `}\n .shape .shape-default {\n` +
-            `   box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `   box-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight};\n` +
             `}\n .shape .shape-active {\n` +
-            `   box-shadow: inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `   inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `   box-shadow: inset ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowInsetDark},\n` +
+            `   inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInsetLight};\n` +
             `}\n .shape .shape-focused {\n` +
             `   background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo});\n` +
-            `   box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `   ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `   box-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `   ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight};\n` +
             `}\n .shape .shape-disabled {\n` +
             `   background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom});\n` +
-            `   box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `   ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `   box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `   ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight};\n` +
             `}\n .text {\n` +
-            `   text-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadow},\n` +
-            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowInset};\n` +
+            `   text-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowDark},\n` +
+            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowLight};\n` +
             `}\n`,
         sass:
             `.shape \n` +
             `   background-color: ${$cssData.shapeBg}\n` +
             `   &-default \n` +
-            `       box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset}\n` +
+            `       box-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight}\n` +
             `   &-active \n` +
-            `      box-shadow: inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `      inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset}\n` +
+            `      box-shadow: inset ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowInsetDark},\n` +
+            `      inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInsetLight}\n` +
             `   &-focused \n` +
             `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo})\n` +
-            `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset}\n` +
+            `      box-shadow: $${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight}\n` +
             `   &-disabled \n` +
             `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom})\n` +
-            `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset}\n` +
+            `      box-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight}\n` +
             `.text \n` +
-            `   text-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadow},\n` +
-            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowInset}\n`,
+            `   text-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.textShadowWidth} ${$cssData.boxShadowDark},\n` +
+            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowLight}\n`,
         scss:
             `.shape {\n` +
             `   background-color: ${$cssData.shapeBg};\n` +
             `   &-default {\n` +
-            `       box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `       box-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight};\n` +
             `   &-active {\n` +
-            `      box-shadow: inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `      inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `      box-shadow: inset ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowInsetDark},\n` +
+            `      inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInsetLight};\n` +
             `   &-focused {\n` +
             `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo});\n` +
-            `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `      box-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight};\n` +
             `   &-disabled {\n` +
             `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom});\n` +
-            `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `      box-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight};\n` +
             `   }\n` +
             `}\n .text {\n` +
-            `   text-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadow},\n` +
-            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowInset};\n` +
+            `   text-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.textShadowWidth} ${$cssData.boxShadowDark},\n` +
+            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowLight};\n` +
             `}\n`,
         less:
             `.shape {\n` +
             `   background-color: ${$cssData.shapeBg};\n` +
             `   &-default {\n` +
-            `       box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `       box-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight};\n` +
             `   &-active {\n` +
-            `      box-shadow: inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `      inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `      box-shadow: inset ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowInsetDark},\n` +
+            `      inset ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInsetLight};\n` +
             `   &-focused {\n` +
             `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedFrom}, ${$cssData.gradientFocusedTo});\n` +
-            `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `      box-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight};\n` +
             `   &-disabled {\n` +
             `      background: linear-gradient(${$cssData.angle}, ${$cssData.gradientFocusedTo}, ${$cssData.gradientFocusedFrom});\n` +
-            `      box-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadow},\n` +
-            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowInset};\n` +
+            `      box-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.shadowWidth} ${$cssData.boxShadowDark},\n` +
+            `      ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.shadowWidth} ${$cssData.boxShadowLight};\n` +
             `   }\n` +
             `}\n .text {\n` +
-            `   text-shadow: ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadow},\n` +
-            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowInset};\n` +
+            `   text-shadow: ${$cssData.offsetX} ${$cssData.offsetY} ${$cssData.textShadowWidth} ${$cssData.boxShadowDark},\n` +
+            `       ${$cssData.offsetY} ${$cssData.offsetX} ${$cssData.textShadowWidth} ${$cssData.boxShadowLight};\n` +
             `}\n`
     };
 

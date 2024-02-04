@@ -12,14 +12,14 @@ export const states = [
 ];
 
 export const defaults = {
-    lightColor: '#eceff1',
+    lightColor: '#cfd8dc',
     darkColor: '#546e7a',
     angle: 45,
-    offset: 8,
+    offset: 6,
     coeff: 0,
     width: 10,
     showIcons: true,
-    mode: true // true for light, false for dark
+    mode: true
 };
 
 export const data = {

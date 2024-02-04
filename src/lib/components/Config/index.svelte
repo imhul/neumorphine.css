@@ -599,7 +599,6 @@
             justify-content: flex-start;
             margin-bottom: rem(20);
 
-            // switch
             .switch {
                 position: relative;
                 display: inline-block;
