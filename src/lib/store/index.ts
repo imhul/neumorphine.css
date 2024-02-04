@@ -4,23 +4,58 @@ import { defaults } from '$lib/utils/config';
 import {
     getLightColor,
     getDarkColor,
-    getOppositeColor
+    getOppositeColor,
+    isValidColor
 } from '$lib/utils/colors';
 
+const createLightColor = () => {
+    const { subscribe, set, update } = writable(defaults.lightColor);
+    return {
+        update,
+        subscribe,
+        set: (color: string) => {
+            isValidColor(color) && set(color);
+        }
+    };
+};
+
+const createDarkColor = () => {
+    const { subscribe, set, update } = writable(defaults.darkColor);
+    return {
+        update,
+        subscribe,
+        set: (color: string) => {
+            isValidColor(color) && set(color);
+        }
+    };
+};
+
+const createAngle = () => {
+    const { subscribe, set, update } = writable(defaults.angle);
+    return {
+        update,
+        subscribe,
+        set: (angle: number) => {
+            if (angle >= -90 && angle <= 270) {
+                set(angle);
+            }
+        }
+    };
+};
+
 export const mode = writable(defaults.mode);
-export const lightColor = writable(defaults.lightColor);
-export const darkColor = writable(defaults.darkColor);
+export const lightColor = createLightColor();
+export const darkColor = createDarkColor();
+export const angle = createAngle();
+export const offset = writable(defaults.offset);
+export const coeff = writable(defaults.coeff);
+export const width = writable(defaults.width);
+export const showIcons = writable(defaults.showIcons);
 export const color = derived(
     [mode, lightColor, darkColor],
     ([$mode, $lightColor, $darkColor]) =>
         $mode ? $lightColor : $darkColor
 );
-
-export const angle = writable(defaults.angle);
-export const offset = writable(defaults.offset);
-export const coeff = writable(defaults.coeff);
-export const width = writable(defaults.width);
-export const showIcons = writable(defaults.showIcons);
 
 export const cssData = derived(
     [mode, color, angle, offset, coeff, width, showIcons],
@@ -45,12 +80,10 @@ export const cssData = derived(
             shapeBg: $mode
                 ? getLightColor($color, 10 + $coeff)
                 : getDarkColor($color, 10 + $coeff),
-            boxShadow: $mode
-                ? getLightColor($color, 60 + $coeff)
-                : getDarkColor($color, 60 + $coeff),
-            boxShadowInset: $mode
-                ? getLightColor($color, 20 + $coeff)
-                : getDarkColor($color, 20 + $coeff),
+            boxShadowLight: getLightColor($color, 60 + $coeff),
+            boxShadowDark: getDarkColor($color, 60 + $coeff),
+            boxShadowInsetLight: getLightColor($color, 20 + $coeff),
+            boxShadowInsetDark: getDarkColor($color, 20 + $coeff),
             gradientFocusedFrom: $mode
                 ? getLightColor($color, 50 + $coeff)
                 : getDarkColor($color, 50 + $coeff),

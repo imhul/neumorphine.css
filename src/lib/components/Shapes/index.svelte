@@ -11,8 +11,10 @@
         '--offset-y:': $cssData.offsetY,
         '--color:': $cssData.color,
         '--shape-bg:': $cssData.shapeBg,
-        '--box-shadow:': $cssData.boxShadow,
-        '--box-shadow-inset: ': $cssData.boxShadowInset,
+        '--box-shadow-light:': $cssData.boxShadowLight,
+        '--box-shadow-dark:': $cssData.boxShadowDark,
+        '--box-shadow-inset-light: ': $cssData.boxShadowInsetLight,
+        '--box-shadow-inset-dark: ': $cssData.boxShadowInsetDark,
         '--shadow-width:': $cssData.shadowWidth,
         '--text-shadow-width:': $cssData.textShadowWidth,
         '--gradient-focused-from:': $cssData.gradientFocusedFrom,
@@ -71,18 +73,21 @@
 
 <style lang="scss">
     .container {
-        --text-shadow: var(--offset-y) var(--offset-x)
-                var(--text-shadow-width) var(--box-shadow),
+        --text-shadow: var(--offset-x) var(--offset-y)
+                var(--text-shadow-width) var(--box-shadow-dark),
             var(--offset-y) var(--offset-x) var(--text-shadow-width)
-                var(--box-shadow-inset);
-        --shadow: var(--offset-y) var(--offset-x) var(--shadow-width)
-                var(--box-shadow),
+                var(--box-shadow-light);
+
+        --shadow: var(--offset-x) var(--offset-y) var(--shadow-width)
+                var(--box-shadow-dark),
             var(--offset-y) var(--offset-x) var(--shadow-width)
-                var(--box-shadow-inset);
-        --inner-shadow: inset var(--offset-y) var(--offset-x)
-                var(--shadow-width) var(--box-shadow),
+                var(--box-shadow-light);
+
+        --inner-shadow: inset var(--offset-x) var(--offset-y)
+                var(--shadow-width) var(--box-shadow-inset-dark),
             inset var(--offset-y) var(--offset-x) var(--shadow-width)
-                var(--box-shadow-inset);
+                var(--box-shadow-inset-light);
+
         --focused-gradient: linear-gradient(
             var(--angle),
             var(--gradient-focused-from),

@@ -1,6 +1,6 @@
 <footer>
     <span
-        >Neumorphine.css by
+        >Made with ❤️ by
         <a href="https://weblogic.netlify.app/" target="_blank">
             Tkachuk Zakhar
         </a>

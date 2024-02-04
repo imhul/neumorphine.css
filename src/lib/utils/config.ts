@@ -15,7 +15,7 @@ export const defaults = {
     lightColor: '#eceff1',
     darkColor: '#546e7a',
     angle: 45,
-    offset: 5,
+    offset: 8,
     coeff: 0,
     width: 10,
     showIcons: true,

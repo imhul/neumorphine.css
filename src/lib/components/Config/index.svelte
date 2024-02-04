@@ -1,7 +1,6 @@
 <script lang="ts">
     import {
         mode,
-        color,
         angle,
         offset,
         width,
@@ -12,13 +11,17 @@
     } from '$lib/store';
     import { defaults } from '$lib/utils/config';
     import { tweened } from 'svelte/motion';
+    import { sineOut } from 'svelte/easing';
     // components
     import Icon from '$lib/components/Icon/index.svelte';
     import Tooltip from '$lib/components/Tooltip/index.svelte';
     import Code from './code.svelte';
 
     let clicked = false;
-    let tweenedAngle = tweened($angle);
+    let tweenedAngle = tweened($angle, {
+        duration: 300,
+        easing: sineOut
+    });
     $: isResetRequired =
         ($mode && $lightColor !== defaults.lightColor) ||
         (!$mode && $darkColor !== defaults.darkColor);
@@ -36,6 +39,10 @@
         );
         $tweenedAngle = $angle;
     };
+
+    $: {
+        if ($angle) $tweenedAngle = Number($angle);
+    }
 </script>
 
 <aside>
@@ -100,12 +107,16 @@
                         id="light-color-input"
                         type="text"
                         bind:value={$lightColor}
+                        maxlength="7"
+                        minlength="7"
                     />
                 {:else}
                     <input
                         id="dark-color-input"
                         type="text"
                         bind:value={$darkColor}
+                        maxlength="7"
+                        minlength="7"
                     />
                 {/if}
             </div>
@@ -159,7 +170,13 @@
                     {/if}
                 </div>
                 <label for="angle" />
-                <input id="angle" type="text" bind:value={$angle} />
+                <input
+                    id="angle"
+                    type="text"
+                    bind:value={$angle}
+                    maxlength="3"
+                    minlength="1"
+                />
                 <!-- &deg; -->
             </div>
         </div>
@@ -252,7 +269,7 @@
             bind:checked={$mode}
         />
         <label for="toggle-mode" class="switch" />
-        <span>{$mode ? 'Light' : 'Dark'} mode</span>
+        <span>{$mode ? 'Dark' : 'Light'} mode</span>
     </div>
     <Code />
 </aside>
@@ -312,7 +329,6 @@
                         width: 100%;
                         height: rem(2);
                         background: var(--dark);
-                        // border-radius: rem(16);
                         cursor: pointer;
                     }
 
@@ -602,13 +618,14 @@
                     border-radius: 50%;
                     background-color: var(--primary);
                     top: rem(-7);
-                    left: rem(-1);
+
+                    left: rem(18);
                     transition: left 0.35s;
                 }
             }
 
             input:checked + .switch::after {
-                left: rem(18);
+                left: rem(-1);
             }
 
             input {

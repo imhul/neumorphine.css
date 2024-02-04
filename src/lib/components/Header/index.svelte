@@ -4,12 +4,16 @@
 </script>
 
 <header>
-    <img
-        src={logo}
-        alt="Neumorphine Logo"
-        width="50"
-        title={data.siteName}
-    />
+    <div class="logo">
+        <img
+            src={logo}
+            alt="Neumorphine Logo"
+            width="50"
+            title={data.siteName}
+        />
+        <span>Neumorphine.css</span>
+    </div>
+
     <a
         href="https://github.com/imhul/neumorphine.css"
         target="_blank"
@@ -48,6 +52,26 @@
             background-color: var(--transparent);
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            img {
+                margin-right: rem(10);
+            }
+
+            span {
+                color: var(--dark);
+                font-size: rem(40);
+                display: none;
+
+                @media screen and (min-width: 850px) {
+                    display: block;
+                }
+            }
+        }
+
         a {
             position: absolute;
             left: 50%;
@@ -57,8 +81,13 @@
             text-align: center;
             margin: 0 auto;
 
-            svg > path {
-                fill: var(--dark);
+            svg {
+                width: rem(40);
+                height: rem(40);
+
+                & > path {
+                    fill: var(--dark);
+                }
             }
 
             &:hover {

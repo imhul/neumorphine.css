@@ -61,3 +61,6 @@ export const getOppositeColor = (color: string) => {
         oppositeB.toString(16)
     );
 };
+
+export const isValidColor = (hex: string) =>
+    /^#[0-9A-F]{6}$/i.test(hex);
