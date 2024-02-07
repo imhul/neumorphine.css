@@ -2,9 +2,15 @@
     <span
         >Made with ❤️ by
         <a href="https://weblogic.netlify.app/" target="_blank">
-            Tkachuk Zakhar
-        </a>
+            Tkachuk Zakhar</a
+        >.
     </span>
+    <span class="block"
+        >Can you buy me a ☕ <a
+            href="https://www.buymeacoffee.com/blashirkz"
+            >for support</a
+        ></span
+    >
 </footer>
 
 <style lang="scss">
@@ -28,6 +34,11 @@
             &:visited {
                 color: var(--primary);
             }
+        }
+
+        .block {
+            display: block;
+            margin-left: rem(20);
         }
     }
 </style>
