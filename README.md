@@ -23,4 +23,4 @@ Download [Windows installer](https://github.com/imhul/neumorphine.css/releases/d
 
 ### Donate
 
-Can you buy me a ☕ [for support](https://www.buymeacoffee.com/blashirkz)
+You can buy me a ☕ [for support](https://www.buymeacoffee.com/blashirkz)

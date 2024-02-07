@@ -6,7 +6,7 @@
         >.
     </span>
     <span class="block"
-        >Can you buy me a ☕ <a
+        >You can buy me a ☕ <a
             href="https://www.buymeacoffee.com/blashirkz"
             >for support</a
         ></span
