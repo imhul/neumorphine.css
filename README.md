@@ -13,10 +13,6 @@ Open Source CSS Code Generator for Neumorphism UI Design Concept made with ‚ù§Ô∏
 
 Stable release version: 1.0.0
 
-### Demo
-
-Can you see the [demo](https://imhul.github.io/neumorphine.css)
-
 ### Desktop App
 
 Download [Windows installer](https://github.com/imhul/neumorphine.css/releases/tag/1.0.0)
