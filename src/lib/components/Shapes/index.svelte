@@ -1,6 +1,6 @@
 <script lang="ts">
     import { cssData } from '$lib/store';
-    import { shapes, states } from '$lib/utils/config';
+    import { shapes } from '$lib/utils/config';
     // components
     import Icon from '$lib/components/Icon/index.svelte';
     import Tooltip from '$lib/components/Tooltip/index.svelte';
@@ -25,6 +25,21 @@
     $: styles = Object.entries(styleObj)
         .map(([key, value]) => `${key} ${value}`)
         .join('; ');
+
+    let states = [
+    { id: 0, title: 'default' },
+    { id: 1, title: 'active' },
+    { id: 2, title: 'focused' },
+    { id: 3, title: 'disabled' }
+]
+
+    const handleStateChange = (event: Event, stateId: number) => {
+        states = states.map((state) =>
+            state.id === stateId
+                ? { ...state, title: (event.target as HTMLInputElement).value }
+                : state
+        );
+    };
 </script>
 
 <div class="container" style={styles}>
@@ -36,12 +51,8 @@
                         class="shape {shape.title} shape-{state.title}"
                     >
                         <Tooltip text="{shape.title} {state.title}">
-                            {#if $cssData.showIcons}
-                                <Icon
-                                    size={40}
-                                    name="hashtag"
-                                    color="var(--icon-color)"
-                                />
+                            {#if $cssData.icon}
+                                <span style={`font-size: 4rem`}>{$cssData.icon}</span>
                             {:else}
                                 <div class="helper" />
                             {/if}
@@ -55,17 +66,18 @@
                 <Tooltip text="input {state.title}">
                     <label for="input-{state.title}" />
                     <input
-                        value={$cssData.showIcons ? state.title : ''}
                         type="text"
                         class="input shape shape-{state.title}"
                         id="input-{state.title}"
+                        value={states[state.id].title}
+                        on:change={(event) => handleStateChange(event, state.id)}
                     />
                 </Tooltip>
             {/each}
         </div>
         <div class="row">
             {#each states as state}
-                <span class="text">{state.title}</span>
+                <span class="text">{states[state.id].title}</span>
             {/each}
         </div>
     </div>
@@ -75,17 +87,20 @@
     .container {
         --text-shadow: var(--offset-x) var(--offset-y)
                 var(--text-shadow-width) var(--box-shadow-dark),
-            var(--offset-y) var(--offset-x) var(--text-shadow-width)
+            calc(var(--offset-x) * -1)
+                calc(var(--offset-y) * -1) var(--text-shadow-width)
                 var(--box-shadow-light);
 
         --shadow: var(--offset-x) var(--offset-y) var(--shadow-width)
                 var(--box-shadow-dark),
-            var(--offset-y) var(--offset-x) var(--shadow-width)
+            calc(var(--offset-x) * -1)
+                calc(var(--offset-y) * -1) var(--shadow-width)
                 var(--box-shadow-light);
 
         --inner-shadow: inset var(--offset-x) var(--offset-y)
                 var(--shadow-width) var(--box-shadow-inset-dark),
-            inset var(--offset-y) var(--offset-x) var(--shadow-width)
+            inset calc(var(--offset-x) * -1)
+                calc(var(--offset-y) * -1) var(--shadow-width)
                 var(--box-shadow-inset-light);
 
         --focused-gradient: linear-gradient(

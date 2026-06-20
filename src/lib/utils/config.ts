@@ -18,7 +18,7 @@ export const defaults = {
     offset: 6,
     coeff: 0,
     width: 10,
-    showIcons: true,
+    icon: "#",
     mode: true
 };
 
