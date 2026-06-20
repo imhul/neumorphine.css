@@ -50,7 +50,7 @@ export const angle = createAngle();
 export const offset = writable(defaults.offset);
 export const coeff = writable(defaults.coeff);
 export const width = writable(defaults.width);
-export const showIcons = writable(defaults.showIcons);
+export const icon = writable(defaults.icon);
 export const color = derived(
     [mode, lightColor, darkColor],
     ([$mode, $lightColor, $darkColor]) =>
@@ -58,7 +58,7 @@ export const color = derived(
 );
 
 export const cssData = derived(
-    [mode, color, angle, offset, coeff, width, showIcons],
+    [mode, color, angle, offset, coeff, width, icon],
     ([
         $mode,
         $color,
@@ -66,12 +66,12 @@ export const cssData = derived(
         $offset,
         $coeff,
         $width,
-        $showIcons
+        $icon
     ]) => {
         return {
             color: $color,
             angle: $angle,
-            showIcons: $showIcons,
+            icon: $icon,
             shadowWidth: $width + 'px',
             textShadowWidth: ($width / 2).toFixed(1) + 'px',
             iconColor: getOppositeColor($color),

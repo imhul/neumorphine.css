@@ -5,7 +5,7 @@
         offset,
         width,
         coeff,
-        showIcons,
+        icon,
         lightColor,
         darkColor
     } from '$lib/store';
@@ -15,7 +15,7 @@
     // components
     import Icon from '$lib/components/Icon/index.svelte';
     import Tooltip from '$lib/components/Tooltip/index.svelte';
-    import Code from './code.svelte';
+    import Code from '$lib/components/Config/code.svelte';
 
     let clicked = false;
     let tweenedAngle = tweened($angle, {
@@ -255,12 +255,16 @@
 
     <div class="switch-wrapper">
         <input
+            type="text"
+            name="icon"
+            class="icon-input"
             id="toggle-icons"
-            type="checkbox"
-            bind:checked={$showIcons}
+            maxlength="1"
+            value={$icon}
+            on:change={event =>
+                icon.set(event?.currentTarget?.value ?? $icon)}
         />
-        <label for="toggle-icons" class="switch" />
-        <span>{$showIcons ? 'Hide' : 'Show'} demo icons</span>
+        <label for="toggle-icons">Demo icon</label>
     </div>
     <div class="switch-wrapper">
         <input
@@ -629,6 +633,23 @@
 
             input {
                 display: none;
+            }
+
+            .icon-input {
+                display: block;
+                max-width: rem(80);
+                margin-right: rem(10);
+                text-align: center;
+                border: 0;
+                background-color: var(--grey);
+                border-radius: rem(3);
+                padding: rem(4);
+
+                &:focus,
+                &:hover {
+                    background-color: var(--primary);
+                    color: var(--color-white);
+                }
             }
         }
     }

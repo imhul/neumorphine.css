@@ -11,7 +11,7 @@ Open Source CSS Code Generator for Neumorphism UI Design Concept made with ‚ù§Ô∏
 
 ### Current Version
 
-Stable release version: 1.0.0
+Release version: 1.0.0-stable
 
 ### Demo
 
